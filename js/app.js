@@ -1,6 +1,7 @@
 import { renderCard, attribution, el } from './card.js';
 import { attachSwipe } from './swipe.js';
-import { reasonsFor, penalty } from './reasons.js';
+import { reasonsFor } from './reasons.js';
+import { rankQueue } from './rank.js';
 import * as stats from './stats.js';
 import { initZoneView, resetZoneView, zoneLabel } from './zone.js';
 import { initGardenView, resetGardenView, gardenLabel, gardensOf, hasGardenAnswer, fitsProfile } from './garden.js';
@@ -11,35 +12,22 @@ let plants = [];   // kaikki kasvit
 let pool = [];     // käyttäjän vyöhykkeellä menestyvät
 let queue = [];
 let current = null;   // { plant, fling }
-
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+let jitter = new Map();  // kasvikohtainen satunnaisluku tasapisteiden sekoitukseen
 
 function buildQueue() {
   const profile = stats.getProfile();
   pool = plants.filter((p) => fitsProfile(p, profile?.zone, gardensOf(profile)));
   const seen = new Set(stats.getStats().seen);
-  queue = shuffle(pool.filter((p) => !seen.has(p.id)));
+  queue = pool.filter((p) => !seen.has(p.id));
+  jitter = new Map(queue.map((p) => [p, Math.random()]));
   rank();
   stats.clearUndo();
   $('#zone-badge').textContent = [zoneLabel(profile), gardenLabel(gardensOf(profile))].filter(Boolean).join(' · ');
 }
 
-// Hylkäyssyyt järjestävät jonon: kasvit, joihin aiemmin valitut syyt pätevät,
-// siirtyvät loppuun. Mitään ei piiloteta, ja tasapisteissä sekoitus säilyy.
+// Tykkäykset ja hylkäyssyyt järjestävät jonon (rank.js). Mitään ei piiloteta.
 function rank() {
-  const counts = {};
-  for (const { vote, reasons } of Object.values(stats.getStats().votes)) {
-    if (vote === 'dislike') for (const r of reasons) counts[r] = (counts[r] ?? 0) + 1;
-  }
-  const score = new Map(queue.map((p) => [p, penalty(p, counts)]));
-  queue.sort((a, b) => score.get(a) - score.get(b));
+  rankQueue(queue, stats.getStats().votes, new Map(plants.map((p) => [p.id, p])), jitter);
 }
 
 // ---------- Pyyhkäisynäkymä ----------
@@ -76,6 +64,7 @@ function showNext() {
 function onSwipe(plant, dir) {
   if (dir === 'like') {
     stats.recordVote(plant.id, 'like');
+    rank();
     showNext();
   } else {
     openReasons(plant);

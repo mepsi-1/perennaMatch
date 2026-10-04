@@ -17,7 +17,8 @@ export const REASONS = {
   bloom_time: 'Kukinta-aika ei sovi',
 };
 
-const GENERIC = ['looks', 'color', 'bloom_time'];
+// Pätevät kaikkiin kasveihin, joten ne eivät vaikuta pakan järjestykseen
+export const GENERIC = ['looks', 'color', 'bloom_time'];
 
 function ruleReasons(p) {
   const ids = [];
@@ -44,17 +45,6 @@ export function reasonsFor(plant) {
     .filter((r) => r.label && !removed.has(r.id));
   const seen = new Set();
   return list.filter((r) => !seen.has(r.id) && seen.add(r.id));
-}
-
-/**
- * Kuinka monta kertaa käyttäjä on hylännyt kasveja syillä, jotka pätevät myös
- * tähän kasviin. Yleiset syyt (ulkonäkö, väri, kukinta-aika) pätevät kaikkiin,
- * joten ne eivät kerro mitään eivätkä vaikuta.
- */
-export function penalty(plant, counts) {
-  let sum = 0;
-  for (const { id } of reasonsFor(plant)) if (!GENERIC.includes(id)) sum += counts[id] ?? 0;
-  return sum;
 }
 
 /** Syy-id:n näyttöteksti tilastoissa, myös kasvikohtaisille syille. */
