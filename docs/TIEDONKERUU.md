@@ -129,6 +129,8 @@ Jos kentän jättää pois, arvo päätellään seuraavasti:
 - perenna → `"pieni"`, eli kasvi ei näy parvekkeen valinneelle
 - puu, jonka `height[0] >= 1000` → `"iso"`
 - muu puu → `"pieni"`
+- pensas tai köynnös, jonka `height[1] > 500` → `"iso"`
+- muu pensas tai köynnös → `"pieni"`
 
 Merkitse kenttä vain, kun oletus on väärä:
 - `"parveke"`: kasvi menestyy ruukussa tai laatikossa ja on siihen kokonsa puolesta järkevä. Ruukussa talvehtiminen on maata arempaa, joten älä merkitse kasvia, joka on vyöhykkeellään rajoilla.

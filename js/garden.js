@@ -20,6 +20,9 @@ export function minGarden(plant) {
   if (plant.minGarden) return plant.minGarden;
   const isTree = plant.type === 'lehtipuu' || plant.type === 'havupuu';
   if (isTree) return plant.height[0] >= 1000 ? 'iso' : 'pieni';
+  // Suurpensaat (pähkinäpensas) ja voimakkaat köynnökset (humala, villiviini) vievät pienen pihan
+  const isWoody = plant.type === 'pensas' || plant.type === 'koynnos';
+  if (isWoody) return plant.height[1] > 500 ? 'iso' : 'pieni';
   return 'pieni';
 }
 
