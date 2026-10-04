@@ -29,7 +29,7 @@ There is no test suite, linter or bundler.
 - Automatic image picks can be the wrong species: Wikidata's image for *Hosta sieboldiana* was a *Hosta fortunei* file. Always check new images visually.
 
 **Runtime modules (`js/`)**
-- `app.js` loads `plants.json`, builds a shuffled queue of unseen plants and swaps views (`swipe`/`favs`/`credits`, toggled with the `hidden` attribute; `credits` is opened from the footer link, not the nav). It also drives the rejection-reason bottom sheet and undo (the button, Backspace or Ctrl+Z puts the previous plant back on top of the deck).
+- `app.js` loads `plants.json`, builds a shuffled queue of unseen plants and swaps views (`swipe`/`list`/`favs`, toggled with the `hidden` attribute). It also drives the rejection-reason bottom sheet, undo (the button, Backspace or Ctrl+Z puts the previous plant back on top of the deck) and "Aloita alusta" (`newRound()` after a confirm). The `list` view lists every plant with its image attribution (it replaced the separate credits page); tapping a row in it or in `favs` puts that plant on top of the deck with `putOnTop()`, even if it is hidden by the zone or garden filter.
 - `swipe.js` `attachSwipe(card, onSwipe)` handles pointer-event dragging and returns a `fling(dir)` function. Buttons and arrow keys call the same function.
 - `reasons.js` builds each plant's rejection reasons:
   - Rules are applied to `height`/`light`/`moisture`/`zoneMax`/`care`/`spreads`, then the generic reasons are appended.
@@ -52,4 +52,5 @@ There is no test suite, linter or bundler.
 - Theming uses CSS custom properties on `:root`, with dark mode set in `prefers-color-scheme`. The layout is mobile-first and the main column is capped at 560px.
 - The visual style is a herbarium: each card is a herbarium sheet with a taped photo and a typewritten collection label, and votes are rubber stamps. Fonts (EB Garamond, Courier Prime, both OFL) are self-hosted in `fonts/`. Never load fonts or other assets from Google Fonts or other CDNs, because the app promises to send nothing anywhere.
 - GitHub Pages caches files for 10 minutes. Whenever anything in `css/` or `js/` changes, bump the `?v=N` number in `index.html` (stylesheet link, `app.js` script and every import map entry): `sed -i 's/?v=[0-9]*/?v=N/g' index.html`. A new module must also be added to the import map. Data files are fetched with `cache: 'no-cache'` and need no version.
+- `sw.js` (service worker, registered in `app.js`) serves same-origin files network-first with a cache fallback, so updates show immediately and the app works offline. It serves hotlinked images cache-first, so each image is downloaded only once. Bump its cache names only when a stored format must be discarded.
 - After every change, commit and push to `main` (`git add` the changed files, `git commit`, `git push`). Pushing to `main` publishes the site to https://mepsi-1.github.io/perennaMatch/ within about a minute. Write commit messages in Finnish.

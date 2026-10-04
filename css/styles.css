@@ -124,9 +124,6 @@ nav button[aria-current="page"] { color: var(--ink); font-weight: 700; text-deco
 
 main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 
-.foot { max-width: 560px; margin: 0 auto; padding: 12px 16px 24px; border-top: 1px solid var(--rule); text-align: center; }
-.foot .link { border: 0; background: none; padding: 6px; color: var(--faded); font: 0.72rem var(--type); letter-spacing: 0.06em; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-
 .view > h2 { font: 600 1.45rem/1.2 var(--serif); margin: 12px 0 4px; }
 .view > h2 + .muted { font-style: italic; margin-top: 0; }
 .view h3 { font: 700 0.72rem var(--type); text-transform: uppercase; letter-spacing: 0.16em; color: var(--faded); margin: 28px 0 10px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
@@ -467,18 +464,26 @@ main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 
 /* ---------- Suosikit: kokoelman luettelo ---------- */
 
-.favs { list-style: none; padding: 0; margin: 0; display: grid; }
-.favs li { display: flex; gap: 14px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--rule); }
-.favs img { width: 54px; height: 54px; object-fit: cover; border: 4px solid var(--mount); box-shadow: 0 1px 3px rgb(60 50 30 / 0.25); transform: rotate(-1.5deg); }
-.favs li:nth-child(even) img { transform: rotate(1.2deg); }
-.favs i { color: var(--faded); }
+.plants { list-style: none; padding: 0; margin: 16px 0; display: grid; }
+.plants li { padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.plant-row { display: flex; gap: 14px; align-items: center; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.plant-row img { flex: none; width: 54px; height: 54px; object-fit: cover; border: 4px solid var(--mount); box-shadow: 0 1px 3px rgb(60 50 30 / 0.25); transform: rotate(-1.5deg); }
+.plants li:nth-child(even) .plant-row img { transform: rotate(1.2deg); }
+.plant-name { flex: 1; min-width: 0; }
+.plant-name i { color: var(--faded); }
+.plant-name small { display: block; font: 0.7rem var(--type); color: var(--faded); }
+.plants li.unfit .plant-row img { opacity: 0.55; }
+.plant-mark { font: 700 1.1rem var(--type); }
+.plant-mark.like { color: var(--green); }
+.plant-mark.dislike { color: var(--red); }
+.plant-credit { margin: 4px 0 0 68px; font: 0.62rem/1.3 var(--type); color: var(--faded); overflow-wrap: anywhere; }
+
+.restart-row { text-align: center; margin: 14px 0 0; }
+.restart-row .link { border: 0; background: none; padding: 6px; color: var(--faded); font: 0.75rem var(--type); letter-spacing: 0.06em; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
 
 
 /* ---------- Tekijät ---------- */
 
-.credits { list-style: none; padding: 0; margin: 0; display: grid; }
-.credits li { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.95rem; overflow-wrap: anywhere; }
-.credits li span { font: 0.75rem var(--type); color: var(--faded); }
 
 @media (max-width: 380px) {
   .facts { grid-template-columns: 1fr; }

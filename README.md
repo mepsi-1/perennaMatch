@@ -24,6 +24,7 @@ Pyyhkäisyn lisäksi voit käyttää ✕- ja ♥-nappeja tai nuolinäppäimiä �
 | `js/swipe.js` | Raahaus ja kortin lennätys |
 | `js/reasons.js` | Hylkäyssyyt ja niiden valintasäännöt |
 | `js/stats.js` | Äänet, profiili ja kumoaminen (localStorage-avain `perenna.v1`) |
+| `sw.js` | Service worker: sovellus toimii ilman verkkoa ja kuvat ladataan vain kerran |
 | `data/plants-source.json` | Käsin ylläpidetty kasvilista |
 | `data/plants.json` | Generoitu: kasvilista sekä kuvat ja lisenssitiedot |
 | `tools/fetch-images.mjs` | Kuvien haku Wikimedia Commonsista ja iNaturalistista |
@@ -52,4 +53,4 @@ Tällä hetkellä kaikki tallennetaan vain käyttäjän omaan selaimeen. Keskite
 
 ## Kuvat
 
-Kuvat ovat Wikimedia Commonsista ja iNaturalistista, ja ne on julkaistu lisensseillä CC0, PD, CC BY tai CC BY-SA. Tekijä ja lisenssi näkyvät jokaisessa kortissa sekä sovelluksen Kuvat-näkymässä.
+Kuvat ovat Wikimedia Commonsista ja iNaturalistista, ja ne on julkaistu lisensseillä CC0, PD, CC BY tai CC BY-SA. Tekijä ja lisenssi näkyvät jokaisessa kortissa sekä sovelluksen Kasvit-listassa.
