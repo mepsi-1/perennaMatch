@@ -31,11 +31,6 @@ function buildQueue() {
 
 // ---------- Pyyhkäisynäkymä ----------
 
-function updateProgress() {
-  const done = pool.length - queue.length - (current ? 1 : 0);
-  $('#progress').textContent = `${Math.min(done + 1, pool.length)} / ${pool.length}`;
-}
-
 function showNext() {
   const deck = $('#deck');
   deck.replaceChildren();
@@ -43,7 +38,6 @@ function showNext() {
 
   if (!queue.length) {
     $('#actions').hidden = true;
-    $('#progress').textContent = '';
     const hidden = plants.length - pool.length;
     deck.append(el('div', { class: 'done' },
       el('h2', {}, pool.length ? 'Kaikki kasvit käyty läpi!' : 'Vyöhykkeellesi ei vielä ole kasveja'),
@@ -63,7 +57,6 @@ function showNext() {
   const card = renderCard(plant);
   deck.append(card);
   current = { plant, fling: attachSwipe(card, (dir) => onSwipe(plant, dir)) };
-  updateProgress();
 }
 
 function onSwipe(plant, dir) {
