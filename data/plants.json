@@ -1,0 +1,1223 @@
+[
+  {
+    "id": "hosta-sieboldiana",
+    "fi": "Sinikuunlilja",
+    "sci": "Hosta sieboldiana",
+    "height": [
+      60,
+      90
+    ],
+    "bloom": [
+      7,
+      8
+    ],
+    "light": [
+      "puolivarjo",
+      "varjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Isolehtinen, sinivihreä lehtiperenna varjoisiin paikkoihin. Kukat ovat vaaleanvioletteja, mutta pääosassa ovat näyttävät lehdet.",
+    "imageOverride": "Giant Blue Hosta at the Detroit Zoo (5720161077).jpg",
+    "reasons": {
+      "add": [
+        {
+          "id": "slugs",
+          "label": "Etanat syövät lehdet"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Giant_Blue_Hosta_at_the_Detroit_Zoo_%285720161077%29.jpg/960px-Giant_Blue_Hosta_at_the_Detroit_Zoo_%285720161077%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 533,
+      "artist": "Scott Calleja",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Giant_Blue_Hosta_at_the_Detroit_Zoo_(5720161077).jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Giant Blue Hosta at the Detroit Zoo (5720161077).jpg"
+    }
+  },
+  {
+    "id": "paeonia-lactiflora",
+    "fi": "Jalopioni",
+    "sci": "Paeonia lactiflora",
+    "height": [
+      70,
+      100
+    ],
+    "bloom": [
+      6,
+      7
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "keskitaso",
+    "spreads": false,
+    "desc": "Pitkäikäinen klassikko, jonka suuret, usein tuoksuvat kukat avautuvat alkukesällä. Ei pidä siirtelystä ja tarvitsee usein tuennan.",
+    "reasons": {
+      "add": [
+        {
+          "id": "short_bloom",
+          "label": "Kukinta jää liian lyhyeksi"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Lactiflora1b.UME.jpg/960px-Lactiflora1b.UME.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1067,
+      "artist": "Ulf Eliasson",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Lactiflora1b.UME.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Lactiflora1b.UME.jpg"
+    }
+  },
+  {
+    "id": "alcea-rosea",
+    "fi": "Salkoruusu",
+    "sci": "Alcea rosea",
+    "height": [
+      150,
+      250
+    ],
+    "bloom": [
+      7,
+      9
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 4,
+    "care": "keskitaso",
+    "spreads": false,
+    "desc": "Korkea, vanhanaikainen seinusten kasvi, jonka suuret kukat avautuvat varren alaosasta ylöspäin. Usein lyhytikäinen, mutta kylväytyy itsestään.",
+    "reasons": {
+      "add": [
+        "short_lived"
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/%D7%97%D7%95%D7%98%D7%9E%D7%99%D7%AA_%D7%AA%D7%A8%D7%91%D7%95%D7%AA%D7%99%D7%AA.jpg/960px-%D7%97%D7%95%D7%98%D7%9E%D7%99%D7%AA_%D7%AA%D7%A8%D7%91%D7%95%D7%AA%D7%99%D7%AA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1120,
+      "artist": "Hanay",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%D7%97%D7%95%D7%98%D7%9E%D7%99%D7%AA_%D7%AA%D7%A8%D7%91%D7%95%D7%AA%D7%99%D7%AA.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:חוטמית תרבותית.jpg"
+    }
+  },
+  {
+    "id": "campanula-persicifolia",
+    "fi": "Kurjenkello",
+    "sci": "Campanula persicifolia",
+    "height": [
+      60,
+      90
+    ],
+    "bloom": [
+      6,
+      8
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "kuiva",
+      "tuore"
+    ],
+    "zoneMax": 6,
+    "care": "helppo",
+    "spreads": true,
+    "desc": "Kestävä ja vaatimaton kotimainen kello, jonka siniset tai valkoiset kukat nuokkuvat hoikissa varsissa. Kylväytyy herkästi.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Campanula_persicifolia_Tehumardi_Saaremaa.jpg/960px-Campanula_persicifolia_Tehumardi_Saaremaa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 536,
+      "artist": "Wilson44691",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Campanula_persicifolia_Tehumardi_Saaremaa.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Campanula persicifolia Tehumardi Saaremaa.jpg"
+    }
+  },
+  {
+    "id": "primula-veris",
+    "fi": "Kevätesikko",
+    "sci": "Primula veris",
+    "height": [
+      10,
+      25
+    ],
+    "bloom": [
+      5,
+      6
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Matala, tuoksuva kevään kukkija, jonka keltaiset kukat ovat tertuissa. Viihtyy kalkkipitoisessa, ravinteikkaassa maassa.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Common_Cowslip.jpg/960px-Common_Cowslip.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1065,
+      "artist": "Avetisyan Ani",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Common_Cowslip.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Common Cowslip.jpg"
+    }
+  },
+  {
+    "id": "alchemilla-mollis",
+    "fi": "Jättipoimulehti",
+    "sci": "Alchemilla mollis",
+    "height": [
+      30,
+      50
+    ],
+    "bloom": [
+      6,
+      8
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": true,
+    "desc": "Pehmeäkarvaiset, pyöreät lehdet keräävät sadepisarat helmiksi, ja kellanvihreä kukkapilvi pehmentää reunuksia. Kylväytyy runsaasti, ellei kukintoja leikkaa.",
+    "imageOverride": "Alchemilla mollis 03.jpg",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Alchemilla_mollis_03.jpg/960px-Alchemilla_mollis_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1201,
+      "artist": "Averater",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alchemilla_mollis_03.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Alchemilla mollis 03.jpg"
+    }
+  },
+  {
+    "id": "aquilegia-vulgaris",
+    "fi": "Lehtoakileija",
+    "sci": "Aquilegia vulgaris",
+    "height": [
+      50,
+      80
+    ],
+    "bloom": [
+      6,
+      7
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": true,
+    "desc": "Kannukselliset, nuokkuvat kukat sinisen, violetin, roosan ja valkoisen sävyissä. Risteytyy ja kylväytyy vapaasti, joten värit vaihtelevat vuosien mittaan.",
+    "reasons": {
+      "add": [
+        "short_lived"
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Aquilegia_vulgaris_-_Harilik_kurekell.jpg/960px-Aquilegia_vulgaris_-_Harilik_kurekell.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1200,
+      "artist": "Ivar Leidus",
+      "license": "CC BY-SA 3.0 ee",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/ee/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Aquilegia_vulgaris_-_Harilik_kurekell.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Aquilegia vulgaris - Harilik kurekell.jpg"
+    }
+  },
+  {
+    "id": "lamprocapnos-spectabilis",
+    "fi": "Särkynytsydän",
+    "sci": "Lamprocapnos spectabilis",
+    "height": [
+      60,
+      80
+    ],
+    "bloom": [
+      5,
+      6
+    ],
+    "light": [
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Kaarevista varsista roikkuu rivi sydämenmuotoisia vaaleanpunaisia kukkia. Lehdet kellastuvat usein jo keskikesällä, joten viereen kannattaa istuttaa myöhemmin kasvava kumppani.",
+    "reasons": {
+      "add": [
+        {
+          "id": "summer_dormant",
+          "label": "Lehdet kuihtuvat jo kesällä"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Lamprocapnos_spectabilis_%281%29.jpg/960px-Lamprocapnos_spectabilis_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 533,
+      "artist": "Roozitaa",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lamprocapnos_spectabilis_(1).jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Lamprocapnos spectabilis (1).jpg"
+    }
+  },
+  {
+    "id": "aruncus-dioicus",
+    "fi": "Isoangervo",
+    "sci": "Aruncus dioicus",
+    "height": [
+      150,
+      200
+    ],
+    "bloom": [
+      6,
+      7
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 6,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Pensasmainen jättiläinen, jonka kermanvalkoiset, höyhenmäiset kukinnot nousevat lehvästön yläpuolelle. Pitkäikäinen, mutta vaatii ympärilleen tilaa.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Aruncus_dioicus.jpg/960px-Aruncus_dioicus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1067,
+      "artist": "User:Tigerente",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Aruncus_dioicus.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Aruncus dioicus.jpg"
+    }
+  },
+  {
+    "id": "geranium-sanguineum",
+    "fi": "Verikurjenpolvi",
+    "sci": "Geranium sanguineum",
+    "height": [
+      20,
+      40
+    ],
+    "bloom": [
+      6,
+      8
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "kuiva",
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Matala ja tiivis mätäs, jossa kirkkaan purppuranpunaiset kukat avautuvat läpi kesän. Hienoliuskaiset lehdet ruskaantuvat syksyllä punaisiksi.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/%28MHNT%29_Geranium_sanguineum_-_Flower_and_leaf_-_Les_Martels%2C_Giroussens_Tarn.jpg/960px-%28MHNT%29_Geranium_sanguineum_-_Flower_and_leaf_-_Les_Martels%2C_Giroussens_Tarn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 537,
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:(MHNT)_Geranium_sanguineum_-_Flower_and_leaf_-_Les_Martels,_Giroussens_Tarn.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:(MHNT) Geranium sanguineum - Flower and leaf - Les Martels, Giroussens Tarn.jpg"
+    }
+  },
+  {
+    "id": "echinacea-purpurea",
+    "fi": "Kaunopunahattu",
+    "sci": "Echinacea purpurea",
+    "height": [
+      60,
+      100
+    ],
+    "bloom": [
+      7,
+      9
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "kuiva",
+      "tuore"
+    ],
+    "zoneMax": 3,
+    "care": "keskitaso",
+    "spreads": false,
+    "desc": "Roosanpunaiset terälehdet kaartuvat alaspäin kuparinruskean, piikikkään keskustan ympäriltä. Houkuttelee perhosia, mutta talvehtii huonosti märässä savimaassa.",
+    "reasons": {
+      "add": [
+        "short_lived"
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/.00_1682_Purpur-Sonnenhut_%28Echinacea_purpurea%29.jpg/960px-.00_1682_Purpur-Sonnenhut_%28Echinacea_purpurea%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 533,
+      "artist": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:.00_1682_Purpur-Sonnenhut_(Echinacea_purpurea).jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:.00 1682 Purpur-Sonnenhut (Echinacea purpurea).jpg"
+    }
+  },
+  {
+    "id": "astrantia-major",
+    "fi": "Isotähtiputki",
+    "sci": "Astrantia major",
+    "height": [
+      50,
+      80
+    ],
+    "bloom": [
+      6,
+      8
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Pieniä neulatyynymäisiä kukkia ympäröi paperinohut suojuslehtien kaulus, joten kukka näyttää kuivakukalta jo kasvaessaan. Sopii hyvin leikkokukaksi.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/PlantsInArvenbul1400m.jpg/960px-PlantsInArvenbul1400m.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 793,
+      "artist": "Audrius Meskauskas",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:PlantsInArvenbul1400m.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:PlantsInArvenbul1400m.jpg"
+    }
+  },
+  {
+    "id": "iris-sibirica",
+    "fi": "Siperiankurjenmiekka",
+    "sci": "Iris sibirica",
+    "height": [
+      60,
+      90
+    ],
+    "bloom": [
+      6,
+      6
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 7,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Kapeista, miekkamaisista lehdistä koostuvasta tuppaasta kohoavat sinivioletit kukat. Lehvästö pysyy siistinä koko kesän, vaikka kukinta on ohi parissa viikossa.",
+    "reasons": {
+      "add": [
+        {
+          "id": "short_bloom",
+          "label": "Kukinta jää liian lyhyeksi"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/.00_3385_Sibirische_Schwertlilie_%28Iris_sibirica%29.jpg/960px-.00_3385_Sibirische_Schwertlilie_%28Iris_sibirica%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1068,
+      "artist": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:.00_3385_Sibirische_Schwertlilie_(Iris_sibirica).jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:.00 3385 Sibirische Schwertlilie (Iris sibirica).jpg"
+    }
+  },
+  {
+    "id": "pulmonaria-officinalis",
+    "fi": "Rohtoimikkä",
+    "sci": "Pulmonaria officinalis",
+    "height": [
+      20,
+      30
+    ],
+    "bloom": [
+      4,
+      5
+    ],
+    "light": [
+      "puolivarjo",
+      "varjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Yksi kevään ensimmäisistä kukkijoista: kukat aukeavat roosoina ja muuttuvat sinisiksi. Vaaleatäpläiset lehdet tuovat valoa varjoon kukinnan jälkeenkin.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Pulmonaria_officinalis_TK.jpg/960px-Pulmonaria_officinalis_TK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 533,
+      "artist": "Nefronus",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pulmonaria_officinalis_TK.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Pulmonaria officinalis TK.jpg"
+    }
+  },
+  {
+    "id": "hylotelephium-spectabile",
+    "fi": "Isomaksaruoho",
+    "sci": "Hylotelephium spectabile",
+    "height": [
+      30,
+      50
+    ],
+    "bloom": [
+      8,
+      9
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "kuiva",
+      "tuore"
+    ],
+    "zoneMax": 4,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Mehevälehtinen loppukesän kukkija, jonka litteät roosat kukinnot ovat perhosten suosiossa. Kuivuneet kukinnot jaksavat seistä koristeena pitkälle talveen.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Sedum_spectabile_-_blossom_top_%28aka%29.jpg/960px-Sedum_spectabile_-_blossom_top_%28aka%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 646,
+      "artist": "André Karwath aka Aka",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Sedum_spectabile_-_blossom_top_(aka).jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Sedum spectabile - blossom top (aka).jpg"
+    }
+  },
+  {
+    "id": "phlox-paniculata",
+    "fi": "Syysleimu",
+    "sci": "Phlox paniculata",
+    "height": [
+      80,
+      120
+    ],
+    "bloom": [
+      7,
+      9
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "keskitaso",
+    "spreads": false,
+    "desc": "Loppukesän tuoksuva kukkapilvi, jonka suuret kukinnot ovat valkoisia, roosoja tai violetteja. Tarvitsee tasaisen kosteuden ja ilmavan kasvupaikan.",
+    "reasons": {
+      "add": [
+        {
+          "id": "mildew",
+          "label": "Altis härmälle"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/%28MHNT%29_Phlox_paniculata_famous_light_purple_-_Les_Martels%2C_Giroussens_Tarn.jpg/960px-%28MHNT%29_Phlox_paniculata_famous_light_purple_-_Les_Martels%2C_Giroussens_Tarn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 567,
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:(MHNT)_Phlox_paniculata_famous_light_purple_-_Les_Martels,_Giroussens_Tarn.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:(MHNT) Phlox paniculata famous light purple - Les Martels, Giroussens Tarn.jpg"
+    }
+  },
+  {
+    "id": "brunnera-macrophylla",
+    "fi": "Kaukasianlemmikki",
+    "sci": "Brunnera macrophylla",
+    "height": [
+      30,
+      50
+    ],
+    "bloom": [
+      5,
+      6
+    ],
+    "light": [
+      "puolivarjo",
+      "varjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 4,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Keväällä taivaansiniset, lemmikkimäiset kukat leijuvat sydämenmuotoisten lehtien yllä. Isot lehdet peittävät maan tehokkaasti puiden alla.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/%28MHNT%29_Brunnera_macrophylla%2C_flowers_-_Les_Martels%2C_Giroussens_Tarn.jpg/960px-%28MHNT%29_Brunnera_macrophylla%2C_flowers_-_Les_Martels%2C_Giroussens_Tarn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1031,
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:(MHNT)_Brunnera_macrophylla,_flowers_-_Les_Martels,_Giroussens_Tarn.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:(MHNT) Brunnera macrophylla, flowers - Les Martels, Giroussens Tarn.jpg"
+    }
+  },
+  {
+    "id": "thymus-serpyllum",
+    "fi": "Kangasajuruoho",
+    "sci": "Thymus serpyllum",
+    "height": [
+      5,
+      10
+    ],
+    "bloom": [
+      6,
+      8
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "kuiva"
+    ],
+    "zoneMax": 6,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Maata myötäilevä, tuoksuva mattokasvi, joka peittyy kesällä purppuraisiin kukkiin. Viihtyy kivikossa, hiekassa ja laattojen raoissa, mutta ei siedä märkyyttä.",
+    "imageOverride": "5037-Thymus serpyllum-Hradč. stěny-7.06.jpg",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/5037-Thymus_serpyllum-Hrad%C4%8D._st%C4%9Bny-7.06.jpg/960px-5037-Thymus_serpyllum-Hrad%C4%8D._st%C4%9Bny-7.06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 875,
+      "artist": "Vojtěch Zavadil",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:5037-Thymus_serpyllum-Hrad%C4%8D._st%C4%9Bny-7.06.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:5037-Thymus serpyllum-Hradč. stěny-7.06.jpg"
+    }
+  },
+  {
+    "id": "trollius-europaeus",
+    "fi": "Kullero",
+    "sci": "Trollius europaeus",
+    "height": [
+      40,
+      60
+    ],
+    "bloom": [
+      5,
+      6
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 7,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Kotimainen niittykasvi, jonka pallomaiset, sitruunankeltaiset kukat eivät koskaan aukea kokonaan. Menestyy kosteassa paikassa, vaikkapa lammen reunalla.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Trollius_europaeus_flower_-_Keila.jpg/960px-Trollius_europaeus_flower_-_Keila.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 640,
+      "artist": "Ivar Leidus",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Trollius_europaeus_flower_-_Keila.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Trollius europaeus flower - Keila.jpg"
+    }
+  },
+  {
+    "id": "delphinium-elatum",
+    "fi": "Jaloritarinkannus",
+    "sci": "Delphinium elatum",
+    "height": [
+      150,
+      200
+    ],
+    "bloom": [
+      7,
+      8
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 4,
+    "care": "vaativa",
+    "spreads": false,
+    "desc": "Komeat, tiheät kukkatähkät sinisen ja violetin sävyissä nousevat perennapenkin taustalle. Hauraat varret katkeavat tuulessa ilman tukea, ja kasvi on myrkyllinen.",
+    "reasons": {
+      "add": [
+        {
+          "id": "needs_support",
+          "label": "Tarvitsee tuennan"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Delphinium_elatum_-_panoramio.jpg/960px-Delphinium_elatum_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1200,
+      "artist": "Björn S.",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Delphinium_elatum_-_panoramio.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Delphinium elatum - panoramio.jpg"
+    }
+  },
+  {
+    "id": "sorbus-aucuparia",
+    "type": "lehtipuu",
+    "fi": "Kotipihlaja",
+    "sci": "Sorbus aucuparia",
+    "height": [
+      500,
+      1500
+    ],
+    "bloom": [
+      6,
+      6
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "kuiva",
+      "tuore"
+    ],
+    "zoneMax": 8,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Kotimainen pihapuu, jonka valkoiset kukkatertut vaihtuvat syksyllä oransseihin marjoihin. Linnut syövät marjat talvella, ja ruska on kirkkaan punainen.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Rowan_berries.JPG/960px-Rowan_berries.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 533,
+      "artist": "Thomas Bjørkan",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rowan_berries.JPG",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Rowan berries.JPG"
+    }
+  },
+  {
+    "id": "betula-pendula",
+    "type": "lehtipuu",
+    "fi": "Rauduskoivu",
+    "sci": "Betula pendula",
+    "height": [
+      1500,
+      2500
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "kuiva",
+      "tuore"
+    ],
+    "zoneMax": 8,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Valkorunkoinen kansallispuu, jonka oksat riippuvat vanhemmiten. Juuret kuivattavat maata laajalti ja kilpailevat muiden kasvien kanssa vedestä.",
+    "reasons": {
+      "add": [
+        {
+          "id": "allergy",
+          "label": "Siitepöly allergisoi"
+        },
+        {
+          "id": "litter",
+          "label": "Roskaa paljon (lehdet, oksat, hedelmät)"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Betula_pendula_Finland.jpg/960px-Betula_pendula_Finland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 600,
+      "artist": "Percita at Flickr",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Betula_pendula_Finland.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Betula pendula Finland.jpg"
+    }
+  },
+  {
+    "id": "prunus-padus",
+    "type": "lehtipuu",
+    "fi": "Tuomi",
+    "sci": "Prunus padus",
+    "height": [
+      500,
+      1000
+    ],
+    "bloom": [
+      5,
+      6
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 8,
+    "care": "helppo",
+    "spreads": true,
+    "desc": "Alkukesän voimakastuoksuinen valkoinen kukkameri. Leviää juurivesoista ja siemenistä, ja tuomenkehrääjäkoin toukat voivat kietoa koko puun seittiin.",
+    "imageOverride": "20150423Prunus padus5.jpg",
+    "reasons": {
+      "add": [
+        {
+          "id": "pests",
+          "label": "Tuholaiset vaivaavat"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/20150423Prunus_padus5.jpg/960px-20150423Prunus_padus5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1067,
+      "artist": "AnRo0002",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:20150423Prunus_padus5.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:20150423Prunus padus5.jpg"
+    }
+  },
+  {
+    "id": "malus-domestica",
+    "type": "lehtipuu",
+    "fi": "Omenapuu",
+    "sci": "Malus domestica",
+    "height": [
+      300,
+      600
+    ],
+    "bloom": [
+      5,
+      6
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 4,
+    "care": "keskitaso",
+    "spreads": false,
+    "desc": "Keväällä vaaleanpunavalkoinen kukkapilvi ja syksyllä omat omenat. Lajikkeen talvenkestävyys ratkaisee, kuinka pohjoisessa puu menestyy, ja se kaipaa säännöllistä leikkaamista.",
+    "reasons": {
+      "add": [
+        {
+          "id": "litter",
+          "label": "Roskaa paljon (lehdet, oksat, hedelmät)"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Tree_with_red_apples_in_Barkedal_4.jpg/960px-Tree_with_red_apples_in_Barkedal_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 800,
+      "artist": "W.carter",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Tree with red apples in Barkedal 4.jpg"
+    }
+  },
+  {
+    "id": "acer-platanoides",
+    "type": "lehtipuu",
+    "fi": "Metsävaahtera",
+    "sci": "Acer platanoides",
+    "height": [
+      1000,
+      2000
+    ],
+    "bloom": [
+      5,
+      5
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 4,
+    "care": "helppo",
+    "spreads": true,
+    "desc": "Keltavihreät kukat avautuvat ennen lehtiä, ja syksyllä leveä latvus hehkuu keltaisena ja oranssina. Siemenet itävät helposti joka puolelle pihaa.",
+    "imageOverride": "Autumn maple in Tuntorp, Lysekil 3.jpg",
+    "reasons": {
+      "add": [
+        {
+          "id": "shades",
+          "label": "Varjostaa liikaa"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Autumn_maple_in_Tuntorp%2C_Lysekil_3.jpg/960px-Autumn_maple_in_Tuntorp%2C_Lysekil_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1397,
+      "artist": "W.carter",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Autumn_maple_in_Tuntorp,_Lysekil_3.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Autumn maple in Tuntorp, Lysekil 3.jpg"
+    }
+  },
+  {
+    "id": "quercus-robur",
+    "type": "lehtipuu",
+    "fi": "Metsätammi",
+    "sci": "Quercus robur",
+    "height": [
+      1000,
+      2500
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 3,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Leveälatvuksinen, satoja vuosia elävä jalopuu, jonka liuskaiset lehdet ja tammenterhot tunnistaa helposti. Kasvaa nuorena hitaasti.",
+    "reasons": {
+      "add": [
+        {
+          "id": "slow",
+          "label": "Kasvaa liian hitaasti"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Paprastasis_azuolas.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "width": 800,
+      "height": 601,
+      "artist": "Algirdas at Lithuanian Wikipedia",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "source": "https://commons.wikimedia.org/wiki/File:Paprastasis_azuolas.JPG",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Paprastasis azuolas.JPG"
+    }
+  },
+  {
+    "id": "tilia-cordata",
+    "type": "lehtipuu",
+    "fi": "Metsälehmus",
+    "sci": "Tilia cordata",
+    "height": [
+      1000,
+      2000
+    ],
+    "bloom": [
+      7,
+      7
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 5,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Sydämenmuotoiset lehdet ja heinäkuun hunajantuoksuiset kukat, joilla mehiläiset viihtyvät. Kirvojen erittämä mesikaste voi tehdä alla olevista pinnoista tahmeita.",
+    "reasons": {
+      "add": [
+        {
+          "id": "sticky",
+          "label": "Mesikaste tahraa pihaa"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Tilia_cordata%2C_Lipa2009.jpg/960px-Tilia_cordata%2C_Lipa2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1202,
+      "artist": "ImreKiss",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tilia_cordata,_Lipa2009.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Tilia cordata, Lipa2009.jpg"
+    }
+  },
+  {
+    "id": "picea-abies",
+    "type": "havupuu",
+    "fi": "Metsäkuusi",
+    "sci": "Picea abies",
+    "height": [
+      1500,
+      3000
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo",
+      "varjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 8,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Kartiomainen, tummanvihreä havupuu, joka antaa näkö- ja tuulensuojaa ympäri vuoden. Tiheän latvuksen alla maa jää varjoisaksi ja kuivaksi.",
+    "reasons": {
+      "add": [
+        {
+          "id": "shades",
+          "label": "Varjostaa liikaa"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg/960px-Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1200,
+      "artist": "Ivar Leidus",
+      "license": "CC BY-SA 3.0 ee",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/ee/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Kuusk Keila-Paldiski rdt ääres.jpg"
+    }
+  },
+  {
+    "id": "pinus-sylvestris",
+    "type": "havupuu",
+    "fi": "Mänty",
+    "sci": "Pinus sylvestris",
+    "height": [
+      1500,
+      3000
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "kuiva",
+      "tuore"
+    ],
+    "zoneMax": 8,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Vanhemmiten latvus kohoaa korkealle punaruskean, hilseilevän rungon päähän. Viihtyy karuimmallakin hiekkamaalla ja kalliolla.",
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Pinus_sylvestris_Glenmuick.jpg/960px-Pinus_sylvestris_Glenmuick.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1040,
+      "artist": "Hello, I am Bruce on Flickr",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pinus_sylvestris_Glenmuick.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Pinus sylvestris Glenmuick.jpg"
+    }
+  },
+  {
+    "id": "larix-sibirica",
+    "type": "havupuu",
+    "fi": "Siperianlehtikuusi",
+    "sci": "Larix sibirica",
+    "height": [
+      1500,
+      3000
+    ],
+    "light": [
+      "aurinko"
+    ],
+    "moisture": [
+      "tuore"
+    ],
+    "zoneMax": 8,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Havupuu, joka pudottaa pehmeät neulasensa talveksi. Parhaimmillaan se on keväällä vaaleanvihreänä ja syksyllä kullankeltaisena.",
+    "imageOverride": "Larix sibirica with golden foliage.jpg",
+    "reasons": {
+      "add": [
+        {
+          "id": "litter",
+          "label": "Roskaa paljon (lehdet, oksat, hedelmät)"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Larix_sibirica_with_golden_foliage.jpg/960px-Larix_sibirica_with_golden_foliage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 643,
+      "artist": "Andrew Kudrin from Novosibirsk, Russia",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Larix_sibirica_with_golden_foliage.jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:Larix sibirica with golden foliage.jpg"
+    }
+  },
+  {
+    "id": "thuja-occidentalis",
+    "type": "havupuu",
+    "fi": "Kanadantuija",
+    "sci": "Thuja occidentalis",
+    "height": [
+      300,
+      1000
+    ],
+    "light": [
+      "aurinko",
+      "puolivarjo"
+    ],
+    "moisture": [
+      "tuore",
+      "kostea"
+    ],
+    "zoneMax": 4,
+    "care": "helppo",
+    "spreads": false,
+    "desc": "Kapea ikivihreä puu, jonka lehdet ovat pieniä suomuja. Se on suosittu aitakasvi, mutta peurat ja jänikset syövät sitä talvella mielellään.",
+    "reasons": {
+      "add": [
+        {
+          "id": "browsing",
+          "label": "Jänikset tai peurat syövät"
+        }
+      ]
+    },
+    "image": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/2013-11-06_Lac_Canards_DDumais_%2821%29.jpg/960px-2013-11-06_Lac_Canards_DDumais_%2821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 800,
+      "height": 1067,
+      "artist": "Daniel Dumais",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2013-11-06_Lac_Canards_DDumais_(21).jpg",
+      "sourceName": "Wikimedia Commons",
+      "file": "File:2013-11-06 Lac Canards DDumais (21).jpg"
+    }
+  }
+]

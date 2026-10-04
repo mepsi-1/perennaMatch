@@ -1,0 +1,349 @@
+:root {
+  --bg: #f4f1ea;
+  --surface: #ffffff;
+  --text: #1f2a1f;
+  --muted: #5f6b5c;
+  --line: #ddd8cc;
+  --accent: #3f7a3a;
+  --accent-text: #ffffff;
+  --like: #2f8f4e;
+  --nope: #c2453a;
+  --chip: #ece8de;
+  --shadow: 0 10px 30px rgb(30 40 25 / 0.15);
+  --radius: 18px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141814;
+    --surface: #1f251f;
+    --text: #e8ece4;
+    --muted: #a3ad9f;
+    --line: #333b32;
+    --accent: #7dbb6f;
+    --accent-text: #0f170e;
+    --like: #5cc47c;
+    --nope: #ec6f63;
+    --chip: #2a322a;
+    --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+h1, h2, h3 { line-height: 1.2; }
+
+[hidden] { display: none !important; }
+
+.muted { color: var(--muted); }
+
+/* ---------- Yläpalkki ---------- */
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.top h1 { font-size: 1.15rem; margin: 0; }
+
+nav { display: flex; gap: 4px; }
+
+nav button {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+nav button[aria-current="page"] { background: var(--chip); color: var(--text); }
+
+main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
+
+/* ---------- Korttipino ---------- */
+
+.swipe-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 8px; }
+
+.progress { color: var(--muted); font-size: 0.85rem; margin: 0; min-height: 1.2em; }
+
+.zone-badge {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.zone-badge::after { content: " ✎"; color: var(--muted); }
+
+/* ---------- Vyöhykkeen valinta ---------- */
+
+.small { font-size: 0.8rem; }
+
+.btn.wide { width: 100%; margin-top: 4px; }
+
+.field { display: grid; gap: 6px; margin-top: 16px; font-size: 0.9rem; color: var(--muted); }
+
+.field input {
+  font: inherit;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.zone-status { min-height: 1.45em; margin: 12px 0; }
+
+.zone-fieldset { border: 0; padding: 0; margin: 0; }
+.zone-fieldset legend { font-size: 0.9rem; color: var(--muted); margin-bottom: 6px; padding: 0; }
+
+.zone-pick { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
+
+.zone-pick button {
+  font: inherit;
+  font-weight: 600;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--chip);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.zone-pick button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+
+@media (max-width: 380px) {
+  .zone-pick { grid-template-columns: repeat(4, 1fr); }
+}
+
+.deck {
+  position: relative;
+  height: min(70dvh, 640px);
+  min-height: 420px;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+  --like: 0;
+  --nope: 0;
+}
+
+.card:active { cursor: grabbing; }
+
+.card.animating { transition: transform 0.35s ease; }
+
+.card.behind { transform: scale(0.95) translateY(12px); opacity: 0.7; pointer-events: none; }
+
+.photo { position: relative; flex: 1 1 auto; min-height: 0; background: var(--chip); }
+
+.photo img, .no-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.no-image { display: grid; place-items: center; color: var(--muted); }
+
+.credit {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  margin: 0;
+  padding: 16px 12px 6px;
+  font-size: 0.72rem;
+  color: #fff;
+  background: linear-gradient(transparent, rgb(0 0 0 / 0.65));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stamp {
+  position: absolute;
+  top: 20px;
+  padding: 4px 12px;
+  border: 3px solid;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgb(255 255 255 / 0.85);
+}
+
+.stamp.like { left: 18px; color: var(--like); transform: rotate(-12deg); opacity: var(--like); }
+.stamp.nope { right: 18px; color: var(--nope); transform: rotate(12deg); opacity: var(--nope); }
+
+.info { padding: 14px 16px 16px; flex: 0 0 auto; }
+
+.kind {
+  margin: 0 0 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.info h2 { margin: 0 0 4px; font-size: 1.35rem; }
+.info h2 i { font-weight: 400; font-size: 0.95rem; color: var(--muted); }
+
+.desc { margin: 0 0 10px; font-size: 0.92rem; color: var(--muted); }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 0;
+}
+
+.facts div { background: var(--chip); border-radius: 10px; padding: 6px 8px; min-width: 0; }
+.facts dt { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.facts dd { margin: 0; font-size: 0.85rem; font-weight: 600; overflow-wrap: anywhere; }
+
+.actions { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
+
+.round {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  background: var(--surface);
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s;
+}
+
+.round:hover { transform: scale(1.08); }
+.round.like { color: var(--like); }
+.round.nope { color: var(--nope); }
+
+.done { text-align: center; padding: 48px 16px; }
+.done-actions { display: flex; gap: 12px; justify-content: center; }
+
+/* ---------- Painikkeet ---------- */
+
+.btn {
+  font: inherit;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 600; }
+.btn.danger { color: var(--nope); }
+
+.row { display: flex; gap: 12px; justify-content: flex-end; margin-top: 20px; }
+
+/* ---------- Hylkäyssyiden paneeli ---------- */
+
+.sheet {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.4);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+}
+
+.sheet-panel {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+}
+
+.sheet.open .sheet-panel { transform: none; }
+
+.sheet h2 { margin: 0 0 4px; font-size: 1.15rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+.chip {
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--chip);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chip[aria-pressed="true"] { background: var(--nope); border-color: var(--nope); color: #fff; }
+
+/* ---------- Tilastot ---------- */
+
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tile { background: var(--surface); border-radius: 12px; padding: 12px; text-align: center; }
+.tile strong { display: block; font-size: 1.5rem; }
+.tile span { font-size: 0.8rem; color: var(--muted); }
+
+.favs { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.favs li { display: flex; gap: 12px; align-items: center; background: var(--surface); border-radius: 12px; padding: 8px; }
+.favs img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; }
+.favs i { color: var(--muted); font-size: 0.85rem; }
+
+.bars { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.bars li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: 0.9rem; }
+.bar { grid-column: 1; height: 8px; border-radius: 4px; background: linear-gradient(var(--nope), var(--nope)) no-repeat left / var(--w) 100%, var(--chip); }
+.bar-value { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-weight: 600; }
+
+/* ---------- Tekijät ---------- */
+
+.credits { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.credits li { background: var(--surface); border-radius: 12px; padding: 12px; font-size: 0.9rem; overflow-wrap: anywhere; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card.animating, .sheet-panel, .round { transition-duration: 0.01s; }
+}

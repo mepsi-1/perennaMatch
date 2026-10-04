@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PerennaMatch</title>
+  <meta name="description" content="Pyyhkäise perennoja ja puita ja löydä omaan puutarhaasi sopivat kasvit.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#2f6b3a">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1>PerennaMatch</h1>
+    <nav>
+      <button type="button" data-view="swipe" aria-current="page">Kasvit</button>
+      <button type="button" data-view="stats">Tilastot</button>
+      <button type="button" data-view="credits">Kuvat</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-zone" class="view" hidden>
+      <h2>Missä puutarhasi on?</h2>
+      <p class="muted">Näytämme vain kasvit, jotka menestyvät kasvuvyöhykkeelläsi.</p>
+      <button type="button" id="zone-locate" class="btn wide">📍 Käytä sijaintiani</button>
+      <p class="muted small">Sijaintia käytetään vain lähimmän kunnan etsimiseen tällä laitteella. Sitä ei tallenneta eikä lähetetä minnekään.</p>
+      <label class="field" for="zone-town">…tai kirjoita kuntasi
+        <input id="zone-town" list="towns" autocomplete="off" placeholder="esim. Tampere">
+      </label>
+      <datalist id="towns"></datalist>
+      <p id="zone-status" class="zone-status" aria-live="polite"></p>
+      <fieldset class="zone-fieldset">
+        <legend>Kasvuvyöhyke</legend>
+        <div id="zone-pick" class="zone-pick"></div>
+      </fieldset>
+      <div class="row">
+        <button type="button" id="zone-skip" class="btn">En tiedä – näytä kaikki</button>
+        <button type="button" id="zone-ok" class="btn primary" disabled>Aloita</button>
+      </div>
+    </section>
+
+    <section id="view-swipe" class="view">
+      <div class="swipe-head">
+        <button type="button" id="zone-badge" class="zone-badge" data-view="zone"></button>
+        <p id="progress" class="progress" aria-live="polite"></p>
+      </div>
+      <div id="deck" class="deck"></div>
+      <div id="actions" class="actions">
+        <button type="button" id="btn-nope" class="round nope" aria-label="Ei kiitos (vasen nuoli)">✕</button>
+        <button type="button" id="btn-like" class="round like" aria-label="Tykkään (oikea nuoli)">♥</button>
+      </div>
+    </section>
+
+    <section id="view-stats" class="view" hidden>
+      <h2>Tilastot</h2>
+      <p class="muted">Valintasi tallentuvat vain tähän selaimeen.</p>
+      <div id="stats-body"></div>
+      <div class="row">
+        <button type="button" id="export" class="btn">Vie JSON</button>
+        <button type="button" id="reset" class="btn danger">Nollaa</button>
+      </div>
+    </section>
+
+    <section id="view-credits" class="view" hidden>
+      <h2>Kuvien tekijät</h2>
+      <p class="muted">Kuvat ovat Wikimedia Commonsista ja iNaturalistista, ja niitä käytetään niiden avoimien lisenssien mukaisesti.</p>
+      <div id="credits-body"></div>
+    </section>
+  </main>
+
+  <div id="reasons" class="sheet" role="dialog" aria-modal="true" aria-labelledby="reason-title" hidden>
+    <div class="sheet-panel">
+      <h2 id="reason-title"></h2>
+      <p class="muted">Valitse yksi tai useampi.</p>
+      <div id="reason-list" class="chips"></div>
+      <div class="row">
+        <button type="button" id="reason-skip" class="btn">Ohita</button>
+        <button type="button" id="reason-done" class="btn primary">Valmis</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "_ohje": "Kunnan asutun keskiosan kasvuvyöhyke numerona 1–8 (I–VIII). Avaimena kunnan suomenkielinen nimi täsmälleen kuten municipalities.json:ssa. Katso docs/TIEDONKERUU.md. Esimerkkiarvot ovat tarkistamattomia.",
+  "Helsinki": 1,
+  "Espoo": 1,
+  "Turku": 1,
+  "Maarianhamina": 1,
+  "Tampere": 2,
+  "Lahti": 2,
+  "Vaasa": 2,
+  "Jyväskylä": 3,
+  "Kuopio": 3,
+  "Joensuu": 3,
+  "Oulu": 4,
+  "Kajaani": 4,
+  "Rovaniemi": 5,
+  "Inari": 7,
+  "Utsjoki": 8
+}
