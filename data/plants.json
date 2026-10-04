@@ -3181,7 +3181,7 @@
     "moisture": [
       "tuore"
     ],
-    "zoneMax": 4,
+    "zoneMax": 3,
     "care": "keskitaso",
     "spreads": false,
     "tags": [
@@ -3532,11 +3532,11 @@
   },
   {
     "id": "bergenia-crassifolia",
-    "fi": "Paksulehtivuorenkilpi",
+    "fi": "Soikkovuorenkilpi",
     "sci": "Bergenia crassifolia",
     "height": [
       30,
-      40
+      50
     ],
     "bloom": [
       5,
@@ -3573,17 +3573,18 @@
   },
   {
     "id": "astilbe-chinensis",
-    "fi": "Kiinankiiltoangervo",
+    "fi": "Kiinanjaloangervo",
     "sci": "Astilbe chinensis",
     "height": [
-      40,
+      30,
       60
     ],
     "bloom": [
-      8,
+      7,
       9
     ],
     "light": [
+      "aurinko",
       "puolivarjo"
     ],
     "moisture": [
@@ -3608,11 +3609,11 @@
   },
   {
     "id": "heuchera-sanguinea",
-    "fi": "Keijunkukka",
+    "fi": "Korallikeijunkukka",
     "sci": "Heuchera sanguinea",
     "height": [
-      30,
-      50
+      20,
+      40
     ],
     "bloom": [
       6,
@@ -3698,7 +3699,7 @@
     ],
     "bloom": [
       6,
-      7
+      8
     ],
     "light": [
       "aurinko",
@@ -3733,11 +3734,11 @@
     "fi": "Tarhapäivänpää",
     "sci": "Lysimachia punctata",
     "height": [
-      60,
-      90
+      50,
+      100
     ],
     "bloom": [
-      6,
+      7,
       8
     ],
     "light": [
@@ -3846,12 +3847,12 @@
     "fi": "Tähkätädyke",
     "sci": "Veronica spicata",
     "height": [
-      20,
-      40
+      30,
+      60
     ],
     "bloom": [
-      6,
-      8
+      7,
+      9
     ],
     "light": [
       "aurinko"
@@ -3891,7 +3892,7 @@
     ],
     "bloom": [
       6,
-      6
+      7
     ],
     "light": [
       "aurinko"
@@ -3937,7 +3938,7 @@
       60
     ],
     "bloom": [
-      6,
+      7,
       8
     ],
     "light": [
@@ -3971,7 +3972,7 @@
     "fi": "Ruusujuuri",
     "sci": "Rhodiola rosea",
     "height": [
-      15,
+      10,
       30
     ],
     "bloom": [
@@ -3979,7 +3980,8 @@
       6
     ],
     "light": [
-      "aurinko"
+      "aurinko",
+      "puolivarjo"
     ],
     "moisture": [
       "kuiva",
@@ -4012,7 +4014,7 @@
     "sci": "Hepatica nobilis",
     "height": [
       10,
-      15
+      20
     ],
     "bloom": [
       4,
@@ -4059,7 +4061,7 @@
     ],
     "bloom": [
       5,
-      5
+      6
     ],
     "light": [
       "puolivarjo",
@@ -4097,11 +4099,11 @@
   },
   {
     "id": "asarum-europaeum",
-    "fi": "Pähkämö",
+    "fi": "Lehtotaponlehti",
     "sci": "Asarum europaeum",
     "height": [
-      5,
-      10
+      10,
+      15
     ],
     "light": [
       "puolivarjo",
@@ -4144,7 +4146,7 @@
     "sci": "Pachysandra terminalis",
     "height": [
       15,
-      25
+      30
     ],
     "bloom": [
       5,
@@ -4178,15 +4180,15 @@
   },
   {
     "id": "ligularia-dentata",
-    "fi": "Kultanauhus",
+    "fi": "Kallionauhus",
     "sci": "Ligularia dentata",
     "height": [
       80,
-      120
+      100
     ],
     "bloom": [
-      7,
-      8
+      8,
+      9
     ],
     "light": [
       "puolivarjo"
@@ -4342,15 +4344,16 @@
     "fi": "Mesimarja",
     "sci": "Rubus arcticus",
     "height": [
-      10,
-      30
+      15,
+      25
     ],
     "bloom": [
       6,
       7
     ],
     "light": [
-      "aurinko"
+      "aurinko",
+      "puolivarjo"
     ],
     "moisture": [
       "tuore",
@@ -4479,7 +4482,7 @@
     ],
     "bloom": [
       6,
-      7
+      8
     ],
     "light": [
       "aurinko",
@@ -4562,11 +4565,11 @@
   {
     "id": "tulipa-tarda",
     "type": "sipulikukka",
-    "fi": "Tarhatähtitulppaani",
+    "fi": "Parvitulppaani",
     "sci": "Tulipa tarda",
     "height": [
       10,
-      15
+      20
     ],
     "bloom": [
       5,
@@ -4648,7 +4651,7 @@
     "sci": "Muscari armeniacum",
     "height": [
       15,
-      20
+      25
     ],
     "bloom": [
       5,
@@ -4662,7 +4665,7 @@
       "kuiva",
       "tuore"
     ],
-    "zoneMax": 5,
+    "zoneMax": 4,
     "care": "helppo",
     "spreads": true,
     "minGarden": "parveke",
@@ -4692,7 +4695,7 @@
       100
     ],
     "bloom": [
-      6,
+      7,
       8
     ],
     "light": [
@@ -4773,14 +4776,14 @@
       "kuiva",
       "tuore"
     ],
-    "zoneMax": 8,
+    "zoneMax": 7,
     "care": "helppo",
     "spreads": true,
     "tags": [
       "perhonen",
       "syotava"
     ],
-    "desc": "Kotimainen ruusu, jonka vaaleanpunaiset kukat tuoksuvat ja kiulukat jäävät talveksi oksille. Kestää koko maassa, mutta leviää juurivesoista.",
+    "desc": "Kotimainen ruusu, jonka vaaleanpunaiset kukat tuoksuvat ja kiulukat jäävät talveksi oksille. Kestää lähes koko maassa, mutta leviää juurivesoista.",
     "imageOverride": "Rosa majalis 2018-05-04 0623.jpg",
     "reasons": {
       "add": [
@@ -4823,7 +4826,7 @@
       "kuiva",
       "tuore"
     ],
-    "zoneMax": 6,
+    "zoneMax": 7,
     "care": "helppo",
     "spreads": false,
     "tags": [
@@ -4864,7 +4867,8 @@
       6
     ],
     "light": [
-      "puolivarjo"
+      "puolivarjo",
+      "varjo"
     ],
     "moisture": [
       "tuore"
@@ -4914,7 +4918,7 @@
       "kuiva",
       "tuore"
     ],
-    "zoneMax": 6,
+    "zoneMax": 5,
     "care": "helppo",
     "spreads": false,
     "tags": [
@@ -4993,10 +4997,10 @@
       "kuiva",
       "tuore"
     ],
-    "zoneMax": 8,
+    "zoneMax": 7,
     "care": "helppo",
     "spreads": true,
-    "desc": "Valkoisin kukkaterttuin peittyvä perinnepensas, jota on istutettu pihoihin ja aidanteiksi koko Suomessa. Tekee runsaasti juurivesoja.",
+    "desc": "Valkoisin kukkaterttuin peittyvä perinnepensas, jota on istutettu pihoihin ja aidanteiksi lähes koko Suomessa. Tekee runsaasti juurivesoja.",
     "imageOverride": "Spiraea chamaedryfolia kz04.jpg",
     "image": {
       "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Spiraea_chamaedryfolia_kz04.jpg/960px-Spiraea_chamaedryfolia_kz04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -5017,7 +5021,7 @@
     "sci": "Cotoneaster lucidus",
     "height": [
       100,
-      200
+      250
     ],
     "light": [
       "aurinko",
@@ -5027,7 +5031,7 @@
       "kuiva",
       "tuore"
     ],
-    "zoneMax": 7,
+    "zoneMax": 6,
     "care": "helppo",
     "spreads": false,
     "desc": "Suomen yleisin leikattava pensasaita. Kiiltävät lehdet hehkuvat syksyllä oranssinpunaisina, ja pensas kestää kovaa leikkausta.",
@@ -5098,7 +5102,7 @@
       "tuore",
       "kostea"
     ],
-    "zoneMax": 7,
+    "zoneMax": 6,
     "care": "helppo",
     "spreads": false,
     "tags": [
@@ -5183,7 +5187,7 @@
       "kuiva",
       "tuore"
     ],
-    "zoneMax": 7,
+    "zoneMax": 6,
     "care": "helppo",
     "spreads": false,
     "tags": [
@@ -5224,7 +5228,7 @@
       "tuore",
       "kostea"
     ],
-    "zoneMax": 4,
+    "zoneMax": 3,
     "care": "helppo",
     "spreads": false,
     "desc": "Suuret, pallomaiset kukinnot vaihtavat väriä vihertävästä valkoiseen. Leikataan keväällä alas, ja raskaat kukat saattavat tarvita tukea.",
@@ -5267,7 +5271,8 @@
       "varjo"
     ],
     "moisture": [
-      "tuore"
+      "tuore",
+      "kostea"
     ],
     "zoneMax": 7,
     "care": "keskitaso",
@@ -5341,8 +5346,8 @@
     "fi": "Siperianomenapuu",
     "sci": "Malus baccata",
     "height": [
-      400,
-      800
+      500,
+      1000
     ],
     "bloom": [
       5,
@@ -5391,8 +5396,8 @@
       "puolivarjo"
     ],
     "moisture": [
-      "kuiva",
-      "tuore"
+      "tuore",
+      "kostea"
     ],
     "zoneMax": 5,
     "care": "helppo",
@@ -5430,7 +5435,7 @@
     "moisture": [
       "tuore"
     ],
-    "zoneMax": 5,
+    "zoneMax": 3,
     "care": "helppo",
     "spreads": false,
     "tags": [
@@ -5460,7 +5465,7 @@
   {
     "id": "clematis-viticella",
     "type": "koynnos",
-    "fi": "Italiankärhö",
+    "fi": "Viinikärhö",
     "sci": "Clematis viticella",
     "height": [
       200,
@@ -5477,7 +5482,7 @@
     "moisture": [
       "tuore"
     ],
-    "zoneMax": 4,
+    "zoneMax": 3,
     "care": "keskitaso",
     "spreads": false,
     "minGarden": "parveke",

@@ -31,7 +31,7 @@ Tämä ohje on tarkoitettu agentille (tai ihmiselle), joka laajentaa Perennavali
 | `bloom` | `[alku, loppu]` | ✓* | Kukinnan alku- ja loppukuukausi Etelä-Suomessa numeroina 1–12. Lehtikasveille annetaan silti kukinta-aika. *Kenttä jätetään pois, jos kasvi ei kuki (saniaiset) tai kukinta ei ole koristeellinen (esim. koivu, havupuut ja tyrni). Kortissa lukee silloin "Ei kukintaa" tai "Ei koristeellinen", eikä hylkäyssyy `bloom_time` näy. |
 | `light` | taulukko | ✓ | Yksi tai useampi arvoista `"aurinko"`, `"puolivarjo"`, `"varjo"`. Merkitse vain olosuhteet, joissa kasvi menestyy **hyvin**, ei niitä, joissa se vain sinnittelee. |
 | `moisture` | taulukko | ✓ | Yksi tai useampi arvoista `"kuiva"`, `"tuore"`, `"kostea"`. |
-| `zoneMax` | kokonaisluku 1–8 | ✓ | Pohjoisin Suomen kasvuvyöhyke, jolla kasvi menestyy (I = 1 … VIII = 8). |
+| `zoneMax` | kokonaisluku 1–8 | ✓ | Pohjoisin Suomen kasvuvyöhyke, jolla kasvi menestyy (I = 1 … VIII = 8). Virallinen vyöhykejako koskee vain puuvartisia kasveja, joten taimistot eivät yleensä ilmoita perennoille vyöhykettä. Perennan ja sipulikukan arvo on arvio taimistojen kestävyyskuvauksesta (esim. "hyvin kestävä", "melko arka") ja luonnonvaraisen levinneisyyden perusteella. Lajikkeiden vyöhykkeet vaihtelevat, joten käytä lajille tyypillistä aluetta. |
 | `care` | merkkijono | ✓ | `"helppo"`, `"keskitaso"` tai `"vaativa"` (katso alla). |
 | `spreads` | boolean | ✓ | `true`, jos kasvi leviää aggressiivisesti juurakoista tai kylväytymällä niin, että sitä joutuu rajoittamaan. |
 | `minGarden` | merkkijono | – | Pienin puutarha, johon kasvi sopii: `"parveke"`, `"pieni"` tai `"iso"`. Katso [Puutarhan tyyppi](#puutarhan-tyyppi-mingarden). |
