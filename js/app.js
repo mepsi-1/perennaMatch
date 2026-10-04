@@ -3,7 +3,7 @@ import { attachSwipe } from './swipe.js';
 import { reasonsFor, reasonLabel } from './reasons.js';
 import * as stats from './stats.js';
 import { initZoneView, resetZoneView, zoneLabel } from './zone.js';
-import { initGardenView, resetGardenView, fitsGarden, gardenLabel, effectiveZone } from './garden.js';
+import { initGardenView, resetGardenView, gardenLabel, gardensOf, hasGardenAnswer, fitsProfile } from './garden.js';
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -23,11 +23,10 @@ function shuffle(arr) {
 
 function buildQueue() {
   const profile = stats.getProfile();
-  const zone = effectiveZone(profile?.zone, profile?.garden);
-  pool = plants.filter((p) => (!zone || p.zoneMax >= zone) && fitsGarden(p, profile?.garden));
+  pool = plants.filter((p) => fitsProfile(p, profile?.zone, gardensOf(profile)));
   const seen = new Set(stats.getStats().seen);
   queue = shuffle(pool.filter((p) => !seen.has(p.id)));
-  $('#zone-badge').textContent = [zoneLabel(profile), gardenLabel(profile?.garden)].filter(Boolean).join(' · ');
+  $('#zone-badge').textContent = [zoneLabel(profile), gardenLabel(gardensOf(profile))].filter(Boolean).join(' · ');
 }
 
 // ---------- Pyyhkäisynäkymä ----------
@@ -172,17 +171,19 @@ function showView(name) {
   if (name === 'stats') renderStats();
   if (name === 'credits') renderCredits();
   if (name === 'zone') resetZoneView(stats.getProfile());
-  if (name === 'garden') resetGardenView(stats.getProfile()?.garden);
+  if (name === 'garden') resetGardenView(gardensOf(stats.getProfile()));
 }
 
 function onZoneChosen(zoneChoice) {
   const prev = stats.getProfile();
-  stats.setProfile({ ...zoneChoice, ...(prev && 'garden' in prev ? { garden: prev.garden } : {}) });
+  const { garden, gardens, ...zoneOnly } = zoneChoice;
+  stats.setProfile({ ...zoneOnly, ...(hasGardenAnswer(prev) ? { gardens: gardensOf(prev) } : {}) });
   showView('garden');
 }
 
-function onGardenChosen(garden) {
-  stats.setProfile({ ...stats.getProfile(), garden });
+function onGardenChosen(gardens) {
+  const { garden, ...rest } = stats.getProfile();
+  stats.setProfile({ ...rest, gardens });
   buildQueue();
   showNext();
   showView('swipe');
@@ -234,7 +235,7 @@ async function init() {
   showNext();
   const profile = stats.getProfile();
   if (!profile) showView('zone');
-  else if (!('garden' in profile)) showView('garden');
+  else if (!hasGardenAnswer(profile)) showView('garden');
 }
 
 init();

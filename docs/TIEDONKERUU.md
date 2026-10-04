@@ -123,7 +123,7 @@ Jos kuva ei kelpaa, etsi parempi Commonsin kategoriasta `Category:<tieteellinen 
 
 ## Puutarhan tyyppi (`minGarden`)
 
-Sovellus kysyy käyttäjältä puutarhan tyypin (parveke tai terassi, pieni piha, iso piha tai mökki) ja **piilottaa kasvit**, jotka eivät sovi siihen. Mökki käsitellään samoin kuin iso piha. Parvekkeella käyttäjän vyöhykettä tiukennetaan yhdellä (enintään VIII:aan), koska ruukussa kasvi talvehtii huonommin. Esimerkiksi vyöhykkeellä III näytetään vain kasvit, joiden `zoneMax` on vähintään 4.
+Sovellus kysyy käyttäjältä puutarhan tyypin monivalintana (parveke tai terassi, pieni piha, iso piha, mökki) ja **piilottaa kasvit**, jotka eivät sovi yhteenkään valittuun paikkaan. Mökki käsitellään samoin kuin iso piha. Parvekkeella käyttäjän vyöhykettä tiukennetaan yhdellä (enintään VIII:aan), koska ruukussa kasvi talvehtii huonommin. Esimerkiksi vyöhykkeellä III näytetään vain kasvit, joiden `zoneMax` on vähintään 4.
 
 Jos kentän jättää pois, arvo päätellään seuraavasti:
 - perenna → `"pieni"`, eli kasvi ei näy parvekkeen valinneelle

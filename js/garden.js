@@ -1,5 +1,5 @@
-// Puutarhan tyyppi: kysytään vyöhykkeen jälkeen, ja sillä piilotetaan
-// kasvit, jotka eivät mahdu tai sovi käyttäjän puutarhaan.
+// Puutarhan tyyppi: kysytään vyöhykkeen jälkeen monivalintana, ja sillä piilotetaan
+// kasvit, jotka eivät sovi yhteenkään käyttäjän valitsemaan paikkaan.
 
 import { el } from './card.js';
 
@@ -7,10 +7,10 @@ const $ = (sel) => document.querySelector(sel);
 
 // size: mitä isompi, sitä useampi kasvi sopii
 export const GARDENS = {
-  parveke: { label: 'Parveke tai terassi', hint: 'Kasvit ruukuissa ja laatikoissa. Ruukussa talvehtiminen on arempaa, joten näytämme vyöhykettä kestävämmät kasvit.', icon: '🪴', size: 0 },
-  pieni: { label: 'Pieni piha', hint: 'Rivitalon piha tai pieni kaupunkitontti', icon: '🏡', size: 1 },
-  iso: { label: 'Iso piha', hint: 'Omakotitalon tai maaseudun piha', icon: '🌳', size: 2 },
-  mokki: { label: 'Mökki', hint: 'Kesämökin tai vapaa-ajan asunnon piha', icon: '🛖', size: 2 },
+  parveke: { label: 'Parveke tai terassi', short: 'Parveke', hint: 'Kasvit ruukuissa ja laatikoissa. Ruukussa talvehtiminen on arempaa, joten näytämme vyöhykettä kestävämmät kasvit.', icon: '🪴', size: 0 },
+  pieni: { label: 'Pieni piha', short: 'Pieni piha', hint: 'Rivitalon piha tai pieni kaupunkitontti', icon: '🏡', size: 1 },
+  iso: { label: 'Iso piha', short: 'Iso piha', hint: 'Omakotitalon tai maaseudun piha', icon: '🌳', size: 2 },
+  mokki: { label: 'Mökki', short: 'Mökki', hint: 'Kesämökin tai vapaa-ajan asunnon piha', icon: '🛖', size: 2 },
 };
 
 const PLANT_SIZE = { parveke: 0, pieni: 1, iso: 2 };
@@ -33,8 +33,24 @@ export function effectiveZone(zone, garden) {
 }
 
 export function fitsGarden(plant, garden) {
-  if (!garden) return true;
   return PLANT_SIZE[minGarden(plant)] <= GARDENS[garden].size;
+}
+
+/** Profiilin puutarhat taulukkona; vanhoissa profiileissa on yksittäinen `garden`. */
+export function gardensOf(profile) {
+  if (Array.isArray(profile?.gardens)) return profile.gardens;
+  return profile?.garden ? [profile.garden] : [];
+}
+
+/** Onko käyttäjä jo vastannut puutarhakysymykseen (myös ohittaminen on vastaus). */
+export function hasGardenAnswer(profile) {
+  return !!profile && ('gardens' in profile || 'garden' in profile);
+}
+
+/** Näytetäänkö kasvi: sen pitää sopia vyöhykkeeseen ja johonkin valituista paikoista. */
+export function fitsProfile(plant, zone, gardens) {
+  if (!gardens.length) return !zone || plant.zoneMax >= zone;
+  return gardens.some((g) => fitsGarden(plant, g) && (!zone || plant.zoneMax >= effectiveZone(zone, g)));
 }
 
 export function initGardenView(onDone) {
@@ -45,17 +61,25 @@ export function initGardenView(onDone) {
 
   $('#garden-pick').addEventListener('click', (e) => {
     const b = e.target.closest('[data-garden]');
-    if (b) onDone(b.dataset.garden);
+    if (!b) return;
+    b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'));
+    $('#garden-ok').disabled = !selected().length;
   });
-  $('#garden-skip').addEventListener('click', () => onDone(null));
+  $('#garden-ok').addEventListener('click', () => onDone(selected()));
+  $('#garden-skip').addEventListener('click', () => onDone([]));
 }
 
-export function resetGardenView(garden) {
+function selected() {
+  return [...document.querySelectorAll('[data-garden][aria-pressed="true"]')].map((b) => b.dataset.garden);
+}
+
+export function resetGardenView(gardens) {
   for (const b of document.querySelectorAll('[data-garden]')) {
-    b.setAttribute('aria-pressed', String(b.dataset.garden === garden));
+    b.setAttribute('aria-pressed', String(gardens.includes(b.dataset.garden)));
   }
+  $('#garden-ok').disabled = !gardens.length;
 }
 
-export function gardenLabel(garden) {
-  return garden ? GARDENS[garden].label : null;
+export function gardenLabel(gardens) {
+  return gardens.length ? gardens.map((g) => GARDENS[g].short).join(', ') : null;
 }
