@@ -1,4 +1,4 @@
-# Tiedonkeruuohje: perennojen ja puiden lisääminen
+# Tiedonkeruuohje: pihakasvien lisääminen
 
 Tämä ohje on tarkoitettu agentille (tai ihmiselle), joka laajentaa Perennavalitsimen kasvilistaa. Lue ohje kokonaan ennen kuin aloitat.
 
@@ -11,7 +11,9 @@ Tämä ohje on tarkoitettu agentille (tai ihmiselle), joka laajentaa Perennavali
 
 ## Mitä kasveja lisätään
 
-- Suomessa myytäviä ja menestyviä **perennoja** (monivuotisia ruohovartisia) ja **puita** (lehti- ja havupuita). Ei pensaita, yksivuotisia eikä sipulikukkia, ellei niistä erikseen sovita.
+- Kaikkia Suomessa myytäviä ja menestyviä **monivuotisia pihakasveja**: perennoja, maanpeitekasveja, pensaita, puita, köynnöksiä, sipulikukkia, koristeheiniä ja saniaisia. Yksivuotisia ja huonekasveja ei lisätä.
+- **Älä lisää haitallisia vieraslajeja** (esim. kurtturuusu, komealupiini, kanadanpiisku ja isotuomipihlaja). Tarkista lajin tilanne [vieraslajit.fi](https://vieraslajit.fi)-sivustolta.
+- Teemoista (`tags`) kannattaa pitää huolta, että jokaiselle löytyy kattava valikoima kasveja eri tyypeistä.
 - Käytä **lajia** (esim. *Paeonia lactiflora*). Lajiketta (esim. 'Sarah Bernhardt') ei käytetä, ellei lajia ole kaupassa käytännössä lainkaan saatavilla.
 - Valitse monipuolisesti: kokoja, valo-olosuhteita, kukinta-aikoja ja hoidon vaativuuksia. Tämä on tärkeää, koska hylkäyssyyt johdetaan näistä tiedoista (katso [Hylkäyssyyt](#hylkäyssyyt)).
 - Tarkista, ettei kasvi ole jo listalla, myöskään synonyymin nimellä.
@@ -20,17 +22,19 @@ Tämä ohje on tarkoitettu agentille (tai ihmiselle), joka laajentaa Perennavali
 
 | Kenttä | Tyyppi | Pakollinen | Ohje |
 |---|---|---|---|
-| `type` | merkkijono | – | `"perenna"` (oletus, kun kenttä puuttuu), `"lehtipuu"` tai `"havupuu"`. Näkyy kortissa nimen yläpuolella. |
+| `type` | merkkijono | – | Kasvutapa: `"perenna"` (oletus, kun kenttä puuttuu), `"pensas"`, `"lehtipuu"`, `"havupuu"`, `"koynnos"`, `"sipulikukka"`, `"koristeheina"` tai `"saniainen"`. Havupensaat, kuten kataja, ovat tyyppiä `"pensas"`. Tyyppi näkyy kortissa nimen yläpuolella. |
+| `tags` | taulukko | – | Teemat: `"perhonen"` (perhos- ja pölyttäjäkasvi), `"kallio"` (kalliopiha ja kuiva paahde), `"syotava"` (syötävät marjat, hedelmät, lehdet tai versot) ja `"maanpeite"` (peittää maan tiiviisti). Maanpeitekasvi on tagi eikä tyyppi, koska maata voi peittää perenna, pensas tai köynnös. Merkitse vain teemat, joihin kasvi selvästi kuuluu. |
 | `id` | merkkijono | ✓ | Tieteellinen nimi pienillä kirjaimilla, väliviivat välilyöntien paikalla: `campanula-persicifolia`. Ei saa muuttua myöhemmin, koska käyttäjien tilastot viittaavat siihen. |
 | `fi` | merkkijono | ✓ | Vakiintunut suomenkielinen nimi isolla alkukirjaimella (esim. *Kurjenkello*). |
 | `sci` | merkkijono | ✓ | Hyväksytty tieteellinen nimi ilman auktoria. Tarkista nimi [POWO:sta](https://powo.science.kew.org/) tai Wikidatasta. Kuvahaku käyttää tätä nimeä. |
 | `height` | `[min, max]` | ✓ | Kukkivan kasvin korkeus senttimetreinä (kokonaislukuja), `min ≤ max`. Puille annetaan täysikasvuisen puun korkeus puutarhassa, myös senttimetreinä. Kortti näyttää korkeuden metreinä, kun `max ≥ 200`. |
-| `bloom` | `[alku, loppu]` | ✓* | Kukinnan alku- ja loppukuukausi Etelä-Suomessa numeroina 1–12. Lehtikasveille annetaan silti kukinta-aika. *Puilta kenttä jätetään pois, jos kukinta ei ole koristeellinen (esim. koivu ja havupuut). Kortissa lukee silloin "Ei koristeellinen", eikä hylkäyssyy `bloom_time` näy. |
+| `bloom` | `[alku, loppu]` | ✓* | Kukinnan alku- ja loppukuukausi Etelä-Suomessa numeroina 1–12. Lehtikasveille annetaan silti kukinta-aika. *Kenttä jätetään pois, jos kasvi ei kuki (saniaiset) tai kukinta ei ole koristeellinen (esim. koivu, havupuut ja tyrni). Kortissa lukee silloin "Ei kukintaa" tai "Ei koristeellinen", eikä hylkäyssyy `bloom_time` näy. |
 | `light` | taulukko | ✓ | Yksi tai useampi arvoista `"aurinko"`, `"puolivarjo"`, `"varjo"`. Merkitse vain olosuhteet, joissa kasvi menestyy **hyvin**, ei niitä, joissa se vain sinnittelee. |
 | `moisture` | taulukko | ✓ | Yksi tai useampi arvoista `"kuiva"`, `"tuore"`, `"kostea"`. |
 | `zoneMax` | kokonaisluku 1–8 | ✓ | Pohjoisin Suomen kasvuvyöhyke, jolla kasvi menestyy (I = 1 … VIII = 8). |
 | `care` | merkkijono | ✓ | `"helppo"`, `"keskitaso"` tai `"vaativa"` (katso alla). |
 | `spreads` | boolean | ✓ | `true`, jos kasvi leviää aggressiivisesti juurakoista tai kylväytymällä niin, että sitä joutuu rajoittamaan. |
+| `minGarden` | merkkijono | – | Pienin puutarha, johon kasvi sopii: `"parveke"`, `"pieni"` tai `"iso"`. Katso [Puutarhan tyyppi](#puutarhan-tyyppi-mingarden). |
 | `desc` | merkkijono | ✓ | 1–2 lausetta suomeksi, korkeintaan noin 200 merkkiä. Katso [Kuvaus](#kuvaus). |
 | `reasons` | objekti | – | `{ "add": [...], "remove": [...] }`. Katso [Hylkäyssyyt](#hylkäyssyyt). |
 | `imageOverride` | merkkijono | – | Wikimedia Commonsin tiedostonimi ilman `File:`-etuliitettä, jos automaattinen kuvavalinta on huono. |
@@ -97,7 +101,7 @@ Sovellus valitsee hylkäyssyyt automaattisesti `js/reasons.js`-tiedoston säänn
 Käytä `reasons`-kenttää vain, kun kasvilla on **tunnettu, yleinen syy jättää se ostamatta**, jota säännöt eivät kata:
 
 - `"add": ["short_lived"]` lisää valmiin syyn `REASONS`-luettelosta.
-- `"add": [{ "id": "slugs", "label": "Etanat syövät lehdet" }]` lisää kasvikohtaisen syyn. Käytä samaa `id`:tä samasta asiasta kaikilla kasveilla, jotta tilastot yhdistyvät (esimerkiksi `slugs`, `short_bloom`, `toxic`, `needs_support`, `fragrance`, `mildew`, `summer_dormant`). Puilla käytössä ovat `shades` (Varjostaa liikaa), `litter` (Roskaa paljon), `allergy` (Siitepöly allergisoi), `pests`, `slow`, `sticky` ja `browsing`.
+- `"add": [{ "id": "slugs", "label": "Etanat syövät lehdet" }]` lisää kasvikohtaisen syyn. Käytä samaa `id`:tä samasta asiasta kaikilla kasveilla, jotta tilastot yhdistyvät (esimerkiksi `slugs`, `short_bloom`, `toxic`, `needs_support`, `fragrance`, `mildew`, `summer_dormant`). Puilla ja pensailla käytössä ovat `shades` (Varjostaa liikaa), `litter` (Roskaa paljon), `allergy` (Siitepöly allergisoi), `pests`, `slow`, `sticky`, `browsing`, `thorns` (Piikit), `needs_pollinator` (Tarvitsee pölyttäjäkaverin) ja `acid_soil` (Vaatii happaman maan).
 - `"remove": ["too_easy"]` poistaa säännön tuottaman syyn, jos se olisi harhaanjohtava.
 
 Tavoitteena on 5–7 syytä kasvia kohden. Lisää enintään kaksi kasvikohtaista syytä.
@@ -116,6 +120,19 @@ Skripti säilyttää jo haetut kuvat. Jos haluat hakea kaikki kuvat uudelleen, k
 - Kuvassa ei ole vesileimoja, tekstiä eikä tunnistettavia ihmisiä.
 
 Jos kuva ei kelpaa, etsi parempi Commonsin kategoriasta `Category:<tieteellinen nimi>` ja lisää sen tiedostonimi `imageOverride`-kenttään. Varmista, että lisenssi on sallittu. Skripti ilmoittaa, jos se ei ole.
+
+## Puutarhan tyyppi (`minGarden`)
+
+Sovellus kysyy käyttäjältä puutarhan tyypin (parveke tai terassi, pieni piha, iso piha tai mökki) ja **piilottaa kasvit**, jotka eivät sovi siihen. Mökki käsitellään samoin kuin iso piha. Parvekkeella käyttäjän vyöhykettä tiukennetaan yhdellä (enintään VIII:aan), koska ruukussa kasvi talvehtii huonommin. Esimerkiksi vyöhykkeellä III näytetään vain kasvit, joiden `zoneMax` on vähintään 4.
+
+Jos kentän jättää pois, arvo päätellään seuraavasti:
+- perenna → `"pieni"`, eli kasvi ei näy parvekkeen valinneelle
+- puu, jonka `height[0] >= 1000` → `"iso"`
+- muu puu → `"pieni"`
+
+Merkitse kenttä vain, kun oletus on väärä:
+- `"parveke"`: kasvi menestyy ruukussa tai laatikossa ja on siihen kokonsa puolesta järkevä. Ruukussa talvehtiminen on maata arempaa, joten älä merkitse kasvia, joka on vyöhykkeellään rajoilla.
+- `"iso"`: perenna tai matala puu, joka leviää tai vie tilaa niin paljon, ettei se sovi pieneen pihaan (esim. vahvasti juurivesoja tekevät lajit).
 
 ## Kuntien kasvuvyöhykkeet
 

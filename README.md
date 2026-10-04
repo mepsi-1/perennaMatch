@@ -1,6 +1,6 @@
 # PerennaMatch
 
-Staattinen HTML5-sovellus, jossa perennoja ja puita pyyhkäistään Tinder-tyyliin. Kun käyttäjä hylkää kasvin, hän voi valita syyn (esim. "liian suuri" tai "vaatii varjoa"). Valinnat kertyvät tilastoiksi selaimen localStorageen.
+Staattinen HTML5-sovellus, jossa pihakasveja (perennoja, pensaita, puita, köynnöksiä ja muita) pyyhkäistään Tinder-tyyliin. Kun käyttäjä hylkää kasvin, hän voi valita syyn (esim. "liian suuri" tai "vaatii varjoa"). Valinnat kertyvät tilastoiksi selaimen localStorageen.
 
 ## Käynnistys paikallisesti
 
@@ -31,7 +31,7 @@ Pyyhkäisyn lisäksi voit käyttää ✕- ja ♥-nappeja tai nuolinäppäimiä �
 | `data/municipality-zones.json` | Käsin ylläpidettävä taulukko kuntien vyöhykkeistä |
 | `data/municipalities.json` | Generoitu: kunnat, koordinaatit ja vyöhykkeet |
 | `tools/fetch-municipalities.mjs` | Kuntien haku Wikidatasta ja vyöhykkeiden yhdistäminen niihin |
-| `docs/TIEDONKERUU.md` | Ohje kasvien ja puiden lisäämiseen |
+| `docs/TIEDONKERUU.md` | Ohje kasvien lisäämiseen |
 
 ## Kasvien lisääminen
 

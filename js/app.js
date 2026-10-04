@@ -1,8 +1,9 @@
-import { renderCard, attribution, el } from './card.js';
+import { renderCard, attribution, el, TYPE, TAGS } from './card.js';
 import { attachSwipe } from './swipe.js';
 import { reasonsFor, reasonLabel } from './reasons.js';
 import * as stats from './stats.js';
 import { initZoneView, resetZoneView, zoneLabel } from './zone.js';
+import { initGardenView, resetGardenView, fitsGarden, gardenLabel, effectiveZone } from './garden.js';
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -21,11 +22,12 @@ function shuffle(arr) {
 }
 
 function buildQueue() {
-  const zone = stats.getProfile()?.zone;
-  pool = zone ? plants.filter((p) => p.zoneMax >= zone) : plants;
+  const profile = stats.getProfile();
+  const zone = effectiveZone(profile?.zone, profile?.garden);
+  pool = plants.filter((p) => (!zone || p.zoneMax >= zone) && fitsGarden(p, profile?.garden));
   const seen = new Set(stats.getStats().seen);
   queue = shuffle(pool.filter((p) => !seen.has(p.id)));
-  $('#zone-badge').textContent = zoneLabel(stats.getProfile());
+  $('#zone-badge').textContent = [zoneLabel(profile), gardenLabel(profile?.garden)].filter(Boolean).join(' · ');
 }
 
 // ---------- Pyyhkäisynäkymä ----------
@@ -47,7 +49,7 @@ function showNext() {
     deck.append(el('div', { class: 'done' },
       el('h2', {}, pool.length ? 'Kaikki kasvit käyty läpi!' : 'Vyöhykkeellesi ei vielä ole kasveja'),
       el('p', {}, pool.length ? 'Katso tilastoista, mistä pidit – tai aloita uusi kierros.' : 'Kasveja lisätään pian.'),
-      hidden > 0 && el('p', { class: 'muted' }, `${hidden} kasvia on piilotettu, koska ne eivät menesty vyöhykkeelläsi.`),
+      hidden > 0 && el('p', { class: 'muted' }, `${hidden} kasvia on piilotettu, koska ne eivät sovi vyöhykkeellesi tai puutarhaasi.`),
       el('div', { class: 'done-actions' },
         el('button', { type: 'button', class: 'btn', 'data-view': 'stats' }, 'Tilastot'),
         el('button', { type: 'button', class: 'btn primary', id: 'restart' }, 'Uusi kierros'))));
@@ -115,6 +117,20 @@ function renderStats() {
   const reasons = Object.entries(s.totals.reasons).sort((a, b) => b[1] - a[1]);
   const max = reasons[0]?.[1] || 1;
 
+  // Tykkäysosuus teemoittain ja kasvityypeittäin, jotta näkee mistä pitää
+  const groups = new Map();
+  for (const [id, v] of Object.entries(s.votes)) {
+    const p = byId.get(id);
+    if (!p) continue;
+    for (const label of [TYPE[p.type ?? 'perenna'], ...(p.tags ?? []).map((t) => TAGS[t])]) {
+      const g = groups.get(label) ?? { likes: 0, n: 0 };
+      g.n += 1;
+      if (v.vote === 'like') g.likes += 1;
+      groups.set(label, g);
+    }
+  }
+  const themes = [...groups].sort((a, b) => b[1].likes / b[1].n - a[1].likes / a[1].n || b[1].n - a[1].n);
+
   $('#stats-body').replaceChildren(
     el('div', { class: 'tiles' },
       el('div', { class: 'tile' }, el('strong', {}, String(total)), el('span', {}, 'arviota')),
@@ -126,6 +142,13 @@ function renderStats() {
           p.image && el('img', { src: p.image.url, alt: '' }),
           el('span', {}, p.fi, el('br'), el('i', {}, p.sci)))))
       : el('p', { class: 'muted' }, 'Ei vielä tykkäyksiä.'),
+    el('h3', {}, 'Teemat ja kasvityypit'),
+    themes.length
+      ? el('ul', { class: 'bars' }, themes.map(([label, g]) => el('li', {},
+          el('span', { class: 'bar-label' }, label),
+          el('span', { class: 'bar', style: `--w:${(g.likes / g.n) * 100}%` }),
+          el('span', { class: 'bar-value' }, `${g.likes}/${g.n}`))))
+      : el('p', { class: 'muted' }, 'Ei vielä arvioita.'),
     el('h3', {}, 'Yleisimmät hylkäyssyyt'),
     reasons.length
       ? el('ul', { class: 'bars' }, reasons.map(([id, n]) => el('li', {},
@@ -149,10 +172,17 @@ function showView(name) {
   if (name === 'stats') renderStats();
   if (name === 'credits') renderCredits();
   if (name === 'zone') resetZoneView(stats.getProfile());
+  if (name === 'garden') resetGardenView(stats.getProfile()?.garden);
 }
 
-function onZoneChosen(profile) {
-  stats.setProfile(profile);
+function onZoneChosen(zoneChoice) {
+  const prev = stats.getProfile();
+  stats.setProfile({ ...zoneChoice, ...(prev && 'garden' in prev ? { garden: prev.garden } : {}) });
+  showView('garden');
+}
+
+function onGardenChosen(garden) {
+  stats.setProfile({ ...stats.getProfile(), garden });
   buildQueue();
   showNext();
   showView('swipe');
@@ -198,10 +228,13 @@ async function init() {
     if (e.key === 'ArrowLeft') current?.fling('dislike');
   });
 
+  initGardenView(onGardenChosen);
   await initZoneView(onZoneChosen);
   buildQueue();
   showNext();
-  if (!stats.getProfile()) showView('zone');
+  const profile = stats.getProfile();
+  if (!profile) showView('zone');
+  else if (!('garden' in profile)) showView('garden');
 }
 
 init();

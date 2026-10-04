@@ -3,7 +3,11 @@
 const MONTHS = ['tammi', 'helmi', 'maalis', 'huhti', 'touko', 'kesä', 'heinä', 'elo', 'syys', 'loka', 'marras', 'joulu'];
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
 const CARE = { helppo: 'Helppo', keskitaso: 'Kohtalainen', vaativa: 'Vaativa' };
-const TYPE = { perenna: 'Perenna', lehtipuu: 'Lehtipuu', havupuu: 'Havupuu' };
+export const TYPE = {
+  perenna: 'Perenna', pensas: 'Pensas', lehtipuu: 'Lehtipuu', havupuu: 'Havupuu',
+  koynnos: 'Köynnös', sipulikukka: 'Sipulikukka', koristeheina: 'Koristeheinä', saniainen: 'Saniainen',
+};
+export const TAGS = { perhonen: 'Perhoskasvi', kallio: 'Kalliopiha', syotava: 'Syötävä', maanpeite: 'Maanpeite' };
 
 export function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -44,7 +48,7 @@ export function attribution(image, { long = false } = {}) {
 export function renderCard(plant) {
   const facts = [
     ['Korkeus', height(plant.height)],
-    ['Kukinta', plant.bloom ? months(plant.bloom) : 'Ei koristeellinen'],
+    ['Kukinta', plant.bloom ? months(plant.bloom) : plant.type === 'saniainen' ? 'Ei kukintaa' : 'Ei koristeellinen'],
     ['Valo', capitalize(plant.light.join(', '))],
     ['Maa', capitalize(plant.moisture.join(', '))],
     ['Vyöhykkeet', `I–${ROMAN[plant.zoneMax]}`],
@@ -63,7 +67,7 @@ export function renderCard(plant) {
       plant.image && el('p', { class: 'credit' }, attribution(plant.image)),
     ),
     el('div', { class: 'info' },
-      el('p', { class: 'kind' }, TYPE[plant.type ?? 'perenna']),
+      el('p', { class: 'kind' }, [TYPE[plant.type ?? 'perenna'], ...(plant.tags ?? []).map((t) => TAGS[t])].join(' · ')),
       el('h2', {}, plant.fi, ' ', el('i', {}, plant.sci)),
       el('p', { class: 'desc' }, plant.desc),
       el('dl', { class: 'facts' },

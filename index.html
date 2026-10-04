@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>PerennaMatch</title>
-  <meta name="description" content="Pyyhkäise perennoja ja puita ja löydä omaan puutarhaasi sopivat kasvit.">
+  <meta name="description" content="Pyyhkäise pihakasveja ja löydä omaan puutarhaasi sopivat kasvit.">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -41,6 +41,16 @@
       <div class="row">
         <button type="button" id="zone-skip" class="btn">En tiedä – näytä kaikki</button>
         <button type="button" id="zone-ok" class="btn primary" disabled>Aloita</button>
+      </div>
+    </section>
+
+    <section id="view-garden" class="view" hidden>
+      <h2>Millainen puutarhasi on?</h2>
+      <p class="muted">Piilotamme kasvit, jotka eivät mahdu tai sovi puutarhaasi.</p>
+      <div id="garden-pick" class="garden-pick"></div>
+      <div class="row">
+        <button type="button" class="btn" data-view="zone">Takaisin</button>
+        <button type="button" id="garden-skip" class="btn">Ohita – näytä kaikki</button>
       </div>
     </section>
 
