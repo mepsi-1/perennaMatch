@@ -162,7 +162,6 @@ function renderFavs() {
 
 function showView(name) {
   for (const v of document.querySelectorAll('.view')) v.hidden = v.id !== `view-${name}`;
-  $('#restart-row').hidden = name === 'zone' || name === 'garden';
   for (const b of document.querySelectorAll('nav [data-view]')) b.setAttribute('aria-current', b.dataset.view === name ? 'page' : 'false');
   if (name === 'favs') renderFavs();
   if (name === 'list') renderList();

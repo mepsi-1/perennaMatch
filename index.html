@@ -11,23 +11,23 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#e6e1d3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1a1915" media="(prefers-color-scheme: dark)">
-  <!-- Versio ?v=5N: nosta kaikki kerralla aina, kun css/ tai js/ muuttuu. Selaimen
+  <!-- Versio ?v=6N: nosta kaikki kerralla aina, kun css/ tai js/ muuttuu. Selaimen
        tavallinen päivitys hakee sivun uudelleen, ja uusi numero pakottaa hakemaan myös
        tyylit ja moduulit, joita GitHub Pages muuten pitää välimuistissa 10 minuuttia. -->
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=6">
   <script type="importmap">
   {
     "imports": {
-      "./js/card.js": "./js/card.js?v=5",
-      "./js/garden.js": "./js/garden.js?v=5",
-      "./js/reasons.js": "./js/reasons.js?v=5",
-      "./js/stats.js": "./js/stats.js?v=5",
-      "./js/swipe.js": "./js/swipe.js?v=5",
-      "./js/zone.js": "./js/zone.js?v=5"
+      "./js/card.js": "./js/card.js?v=6",
+      "./js/garden.js": "./js/garden.js?v=6",
+      "./js/reasons.js": "./js/reasons.js?v=6",
+      "./js/stats.js": "./js/stats.js?v=6",
+      "./js/swipe.js": "./js/swipe.js?v=6",
+      "./js/zone.js": "./js/zone.js?v=6"
     }
   }
   </script>
-  <script type="module" src="js/app.js?v=5"></script>
+  <script type="module" src="js/app.js?v=6"></script>
 </head>
 <body>
   <header class="top">
@@ -86,6 +86,7 @@
       <h2>Suosikkisi</h2>
       <p class="muted">Valintasi tallentuvat vain tähän selaimeen.</p>
       <div id="favs-body"></div>
+      <p class="restart-row"><button type="button" id="btn-restart" class="link">↺ Aloita alusta</button></p>
     </section>
 
     <section id="view-list" class="view" hidden>
@@ -98,8 +99,6 @@
       <p class="muted small">Kuvat ovat Wikimedia Commonsista ja iNaturalistista, ja niitä käytetään niiden avoimien lisenssien mukaisesti.</p>
     </section>
   </main>
-
-  <footer id="restart-row" class="restart-row"><button type="button" id="btn-restart" class="link">↺ Aloita alusta</button></footer>
 
 
   <div id="reasons" class="sheet" role="dialog" aria-modal="true" aria-labelledby="reason-title" hidden>
