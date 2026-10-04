@@ -95,12 +95,6 @@ export function getStats() {
   return structuredClone(state);
 }
 
-export function newRound() {
-  clearUndo();
-  state.seen = [];
-  save();
-}
-
 export function reset() {
   clearUndo();
   state = empty();

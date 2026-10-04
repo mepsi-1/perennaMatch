@@ -43,13 +43,11 @@ function showNext() {
     const hidden = plants.length - pool.length;
     deck.append(el('div', { class: 'done' },
       el('h2', {}, pool.length ? 'Kaikki kasvit käyty läpi!' : 'Vyöhykkeellesi ei vielä ole kasveja'),
-      el('p', {}, pool.length ? 'Katso suosikkisi – tai aloita uusi kierros.' : 'Kasveja lisätään pian.'),
+      el('p', {}, pool.length ? 'Tykkäämäsi kasvit näkyvät Suosikit-sivulla.' : 'Kasveja lisätään pian.'),
       hidden > 0 && el('p', { class: 'muted' }, `${hidden} kasvia on piilotettu, koska ne eivät sovi vyöhykkeellesi tai puutarhaasi.`),
       el('div', { class: 'done-actions' },
         stats.canUndo() && el('button', { type: 'button', class: 'btn', id: 'undo-last' }, '↶ Kumoa'),
-        el('button', { type: 'button', class: 'btn', 'data-view': 'favs' }, 'Suosikit'),
-        el('button', { type: 'button', class: 'btn primary', id: 'restart' }, 'Uusi kierros'))));
-    $('#restart').addEventListener('click', () => { stats.newRound(); buildQueue(); showNext(); });
+        el('button', { type: 'button', class: 'btn primary', 'data-view': 'favs' }, 'Siirry suosikkeihin →'))));
     $('#undo-last')?.addEventListener('click', undo);
     return;
   }

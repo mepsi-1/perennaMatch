@@ -151,6 +151,7 @@ main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 }
 
 .btn.primary:disabled { opacity: 0.4; cursor: default; }
+.btn.danger { border: 2.5px solid var(--red); color: var(--red); font-weight: 700; transform: rotate(1.5deg); }
 .btn.wide { width: 100%; margin-top: 4px; }
 
 .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; align-items: center; margin-top: 24px; }
@@ -478,8 +479,7 @@ main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 .plant-mark.dislike { color: var(--red); }
 .plant-credit { margin: 4px 0 0 68px; font: 0.62rem/1.3 var(--type); color: var(--faded); overflow-wrap: anywhere; }
 
-.restart-row { text-align: center; margin: 14px 0 0; }
-.restart-row .link { border: 0; background: none; padding: 6px; color: var(--faded); font: 0.75rem var(--type); letter-spacing: 0.06em; text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
+.restart-row { text-align: center; margin: 24px 0 0; }
 
 
 /* ---------- Tekijät ---------- */
