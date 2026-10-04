@@ -12,7 +12,7 @@ let choice = null;   // { zone, municipality, method, suggestedZone }
 
 async function loadMunicipalities() {
   if (!municipalities) {
-    const res = await fetch('data/municipalities.json');
+    const res = await fetch('data/municipalities.json', { cache: 'no-cache' });
     municipalities = await res.json();
   }
   return municipalities;

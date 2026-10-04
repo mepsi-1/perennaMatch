@@ -1,6 +1,6 @@
-import { renderCard, attribution, el, TYPE, TAGS } from './card.js';
+import { renderCard, attribution, el } from './card.js';
 import { attachSwipe } from './swipe.js';
-import { reasonsFor, reasonLabel } from './reasons.js';
+import { reasonsFor } from './reasons.js';
 import * as stats from './stats.js';
 import { initZoneView, resetZoneView, zoneLabel } from './zone.js';
 import { initGardenView, resetGardenView, gardenLabel, gardensOf, hasGardenAnswer, fitsProfile } from './garden.js';
@@ -26,6 +26,7 @@ function buildQueue() {
   pool = plants.filter((p) => fitsProfile(p, profile?.zone, gardensOf(profile)));
   const seen = new Set(stats.getStats().seen);
   queue = shuffle(pool.filter((p) => !seen.has(p.id)));
+  stats.clearUndo();
   $('#zone-badge').textContent = [zoneLabel(profile), gardenLabel(gardensOf(profile))].filter(Boolean).join(' · ');
 }
 
@@ -35,6 +36,7 @@ function showNext() {
   const deck = $('#deck');
   deck.replaceChildren();
   current = null;
+  $('#btn-undo').hidden = !stats.canUndo();
 
   if (!queue.length) {
     $('#actions').hidden = true;
@@ -44,9 +46,11 @@ function showNext() {
       el('p', {}, pool.length ? 'Katso tilastoista, mistä pidit – tai aloita uusi kierros.' : 'Kasveja lisätään pian.'),
       hidden > 0 && el('p', { class: 'muted' }, `${hidden} kasvia on piilotettu, koska ne eivät sovi vyöhykkeellesi tai puutarhaasi.`),
       el('div', { class: 'done-actions' },
-        el('button', { type: 'button', class: 'btn', 'data-view': 'stats' }, 'Tilastot'),
+        stats.canUndo() && el('button', { type: 'button', class: 'btn', id: 'undo-last' }, '↶ Kumoa'),
+        el('button', { type: 'button', class: 'btn', 'data-view': 'favs' }, 'Suosikit'),
         el('button', { type: 'button', class: 'btn primary', id: 'restart' }, 'Uusi kierros'))));
     $('#restart').addEventListener('click', () => { stats.newRound(); buildQueue(); showNext(); });
+    $('#undo-last')?.addEventListener('click', undo);
     return;
   }
 
@@ -66,6 +70,16 @@ function onSwipe(plant, dir) {
   } else {
     openReasons(plant);
   }
+}
+
+// Palauttaa edellisen kasvin pinon päälle ja nykyisen sen alle
+function undo() {
+  if (!$('#reasons').hidden) return;
+  const plant = pool.find((p) => p.id === stats.undoLast());
+  if (!plant) return;
+  if (current) queue.unshift(current.plant);
+  queue.unshift(plant);
+  showNext();
 }
 
 // ---------- Hylkäyssyyt ----------
@@ -94,60 +108,21 @@ function closeReasons(save) {
   showNext();
 }
 
-// ---------- Tilastot ja tekijät ----------
+// ---------- Suosikit ja tekijät ----------
 
-function renderStats() {
-  const s = stats.getStats();
+function renderFavs() {
   const byId = new Map(plants.map((p) => [p.id, p]));
-  // Kaikki luvut viimeisimmästä äänestä per kasvi, jotta uudet kierrokset eivät tuplaa niitä
-  const votes = Object.entries(s.votes).filter(([id]) => byId.has(id));
-  const favs = votes.filter(([, v]) => v.vote === 'like').map(([id]) => byId.get(id));
-  const total = votes.length;
-  const likes = favs.length;
+  // Uusin tykkäys ensin
+  const favs = Object.entries(stats.getStats().votes)
+    .filter(([id, v]) => v.vote === 'like' && byId.has(id))
+    .sort((a, b) => b[1].ts.localeCompare(a[1].ts))
+    .map(([id]) => byId.get(id));
 
-  const counts = {};
-  for (const [, v] of votes) for (const r of v.reasons ?? []) counts[r] = (counts[r] ?? 0) + 1;
-  const reasons = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-  const max = reasons[0]?.[1] || 1;
-
-  // Tykkäysosuus teemoittain ja kasvityypeittäin, jotta näkee mistä pitää
-  const groups = new Map();
-  for (const [id, v] of votes) {
-    const p = byId.get(id);
-    for (const label of [TYPE[p.type ?? 'perenna'], ...(p.tags ?? []).map((t) => TAGS[t])]) {
-      const g = groups.get(label) ?? { likes: 0, n: 0 };
-      g.n += 1;
-      if (v.vote === 'like') g.likes += 1;
-      groups.set(label, g);
-    }
-  }
-  const themes = [...groups].sort((a, b) => b[1].likes / b[1].n - a[1].likes / a[1].n || b[1].n - a[1].n);
-
-  $('#stats-body').replaceChildren(
-    el('div', { class: 'tiles' },
-      el('div', { class: 'tile' }, el('strong', {}, String(total)), el('span', {}, 'arviota')),
-      el('div', { class: 'tile' }, el('strong', {}, total ? `${Math.round((likes / total) * 100)} %` : '–'), el('span', {}, 'tykkäyksiä'))),
-    el('h3', {}, 'Suosikkisi'),
-    favs.length
-      ? el('ul', { class: 'favs' }, favs.map((p) => el('li', {},
-          p.image && el('img', { src: p.image.url, alt: '' }),
-          el('span', {}, p.fi, el('br'), el('i', {}, p.sci)))))
-      : el('p', { class: 'muted' }, 'Ei vielä tykkäyksiä.'),
-    el('h3', {}, 'Teemat ja kasvityypit'),
-    themes.length
-      ? el('ul', { class: 'bars' }, themes.map(([label, g]) => el('li', {},
-          el('span', { class: 'bar-label' }, label),
-          el('span', { class: 'bar', style: `--w:${(g.likes / g.n) * 100}%` }),
-          el('span', { class: 'bar-value' }, `${g.likes}/${g.n}`))))
-      : el('p', { class: 'muted' }, 'Ei vielä arvioita.'),
-    el('h3', {}, 'Yleisimmät hylkäyssyyt'),
-    reasons.length
-      ? el('ul', { class: 'bars' }, reasons.map(([id, n]) => el('li', {},
-          el('span', { class: 'bar-label' }, reasonLabel(id, plants)),
-          el('span', { class: 'bar', style: `--w:${(n / max) * 100}%` }),
-          el('span', { class: 'bar-value' }, String(n)))))
-      : el('p', { class: 'muted' }, 'Ei vielä hylkäyksiä.'),
-  );
+  $('#favs-body').replaceChildren(favs.length
+    ? el('ul', { class: 'favs' }, favs.map((p) => el('li', {},
+        p.image && el('img', { src: p.image.url, alt: '' }),
+        el('span', {}, p.fi, el('br'), el('i', {}, p.sci)))))
+    : el('p', { class: 'muted' }, 'Ei vielä tykkäyksiä.'));
 }
 
 function renderCredits() {
@@ -160,7 +135,7 @@ function renderCredits() {
 function showView(name) {
   for (const v of document.querySelectorAll('.view')) v.hidden = v.id !== `view-${name}`;
   for (const b of document.querySelectorAll('nav [data-view]')) b.setAttribute('aria-current', b.dataset.view === name ? 'page' : 'false');
-  if (name === 'stats') renderStats();
+  if (name === 'favs') renderFavs();
   if (name === 'credits') renderCredits();
   if (name === 'zone') resetZoneView(stats.getProfile());
   if (name === 'garden') resetGardenView(gardensOf(stats.getProfile()));
@@ -186,7 +161,7 @@ function onGardenChosen(gardens) {
 async function init() {
   stats.startSession();
   try {
-    const res = await fetch('data/plants.json');
+    const res = await fetch('data/plants.json', { cache: 'no-cache' });
     plants = (await res.json()).filter((p) => p.image);
   } catch {
     $('#deck').textContent = 'Kasvitietojen lataus epäonnistui.';
@@ -202,6 +177,7 @@ async function init() {
 
   $('#btn-like').addEventListener('click', () => current?.fling('like'));
   $('#btn-nope').addEventListener('click', () => current?.fling('dislike'));
+  $('#btn-undo').addEventListener('click', undo);
   $('#reason-done').addEventListener('click', () => closeReasons(true));
   $('#reason-skip').addEventListener('click', () => closeReasons(false));
   $('#reset').addEventListener('click', () => {
@@ -218,6 +194,7 @@ async function init() {
     }
     if (e.key === 'ArrowRight') current?.fling('like');
     if (e.key === 'ArrowLeft') current?.fling('dislike');
+    if (e.key === 'Backspace' || (e.key === 'z' && (e.ctrlKey || e.metaKey))) undo();
   });
 
   initGardenView(onGardenChosen);

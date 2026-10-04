@@ -11,15 +11,30 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#e6e1d3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1a1915" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="css/styles.css">
-  <script type="module" src="js/app.js"></script>
+  <!-- Versio ?v=N: nosta kaikki kerralla aina, kun css/ tai js/ muuttuu. Selaimen
+       tavallinen päivitys hakee sivun uudelleen, ja uusi numero pakottaa hakemaan myös
+       tyylit ja moduulit, joita GitHub Pages muuten pitää välimuistissa 10 minuuttia. -->
+  <link rel="stylesheet" href="css/styles.css?v=2">
+  <script type="importmap">
+  {
+    "imports": {
+      "./js/card.js": "./js/card.js?v=2",
+      "./js/garden.js": "./js/garden.js?v=2",
+      "./js/reasons.js": "./js/reasons.js?v=2",
+      "./js/stats.js": "./js/stats.js?v=2",
+      "./js/swipe.js": "./js/swipe.js?v=2",
+      "./js/zone.js": "./js/zone.js?v=2"
+    }
+  }
+  </script>
+  <script type="module" src="js/app.js?v=2"></script>
 </head>
 <body>
   <header class="top">
     <h1>PerennaMatch</h1>
     <nav>
       <button type="button" data-view="swipe" aria-current="page">Kasvit</button>
-      <button type="button" data-view="stats">Tilastot</button>
+      <button type="button" data-view="favs">Suosikit</button>
     </nav>
   </header>
 
@@ -57,6 +72,7 @@
     <section id="view-swipe" class="view">
       <div class="swipe-head">
         <button type="button" id="zone-badge" class="zone-badge" data-view="zone"></button>
+        <button type="button" id="btn-undo" class="undo" aria-label="Kumoa edellinen valinta (Backspace)" hidden>↶ Kumoa</button>
       </div>
       <div id="deck" class="deck"></div>
       <div id="actions" class="actions">
@@ -65,10 +81,10 @@
       </div>
     </section>
 
-    <section id="view-stats" class="view" hidden>
-      <h2>Tilastot</h2>
+    <section id="view-favs" class="view" hidden>
+      <h2>Suosikkisi</h2>
       <p class="muted">Valintasi tallentuvat vain tähän selaimeen.</p>
-      <div id="stats-body"></div>
+      <div id="favs-body"></div>
       <div class="row">
         <button type="button" id="reset" class="btn danger">Nollaa</button>
       </div>

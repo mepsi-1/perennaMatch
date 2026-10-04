@@ -242,7 +242,6 @@ main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 
 .swipe-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 10px; }
 
-
 .zone-badge {
   font: 0.75rem var(--type);
   letter-spacing: 0.04em;
@@ -260,6 +259,19 @@ main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 }
 
 .zone-badge::after { content: " ✎"; }
+
+.undo {
+  flex: none;
+  font: 0.75rem var(--type);
+  letter-spacing: 0.04em;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--faded);
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
 
 .deck {
   position: relative;
@@ -453,13 +465,7 @@ main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 
 .chip[aria-pressed="true"] { border: 2px solid var(--red); color: var(--red); font-weight: 700; padding: 6px 11px; }
 
-/* ---------- Tilastot: kokoelman luettelo ---------- */
-
-.tiles { display: grid; grid-template-columns: repeat(2, 1fr); border: 1.5px solid var(--ink); background: var(--sheet); }
-.tile { padding: 10px 8px; text-align: center; }
-.tile + .tile { border-left: 1px solid var(--rule); }
-.tile strong { display: block; font: 600 1.6rem/1.1 var(--serif); font-variant-numeric: tabular-nums; }
-.tile span { font: 0.68rem var(--type); text-transform: uppercase; letter-spacing: 0.08em; color: var(--faded); }
+/* ---------- Suosikit: kokoelman luettelo ---------- */
 
 .favs { list-style: none; padding: 0; margin: 0; display: grid; }
 .favs li { display: flex; gap: 14px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--rule); }
@@ -467,16 +473,6 @@ main { max-width: 560px; margin: 0 auto; padding: 0 16px 32px; }
 .favs li:nth-child(even) img { transform: rotate(1.2deg); }
 .favs i { color: var(--faded); }
 
-.bars { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.bars li { display: grid; grid-template-columns: 1fr auto; gap: 3px 10px; font-size: 0.95rem; }
-.bar {
-  grid-column: 1;
-  height: 8px;
-  border: 1px solid var(--ink);
-  background:
-    repeating-linear-gradient(-45deg, var(--ink) 0 1.5px, transparent 1.5px 4px) no-repeat left / var(--w) 100%;
-}
-.bar-value { grid-column: 2; grid-row: 1 / span 2; align-self: center; font: 700 0.9rem var(--type); font-variant-numeric: tabular-nums; }
 
 /* ---------- Tekijät ---------- */
 

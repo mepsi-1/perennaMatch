@@ -19,11 +19,12 @@ function empty() {
     profile: null,  // { zone: 1–8 | null, municipality, method: 'gps'|'kunta'|'valinta'|'oletus'|'ohitus' }
     votes: {},   // viimeisin ääni per kasvi
     seen: [],    // tällä kierroksella nähdyt kasvit
-    totals: { likes: 0, dislikes: 0, reasons: {} },  // kumulatiiviset etäkeruuta varten; näkymä laskee luvut votes-kentästä
+    totals: { likes: 0, dislikes: 0, reasons: {} },  // kumulatiiviset etäkeruuta varten, eivät nollaudu uudella kierroksella
   };
 }
 
 let state = load();
+const undoStack = [];  // tämän käynnin äänet kumoamista varten, ei tallenneta
 
 function load() {
   try {
@@ -43,12 +44,41 @@ export function startSession() {
 }
 
 export function recordVote(plantId, vote, reasons = []) {
+  undoStack.push({ plantId, prev: state.votes[plantId], wasSeen: state.seen.includes(plantId) });
   state.votes[plantId] = { vote, reasons, ts: new Date().toISOString() };
   if (!state.seen.includes(plantId)) state.seen.push(plantId);
   if (vote === 'like') state.totals.likes += 1;
   else state.totals.dislikes += 1;
   for (const r of reasons) state.totals.reasons[r] = (state.totals.reasons[r] || 0) + 1;
   save();
+}
+
+/** Kumoaa viimeisimmän äänen ja palauttaa kasvin id:n, tai null jos kumottavaa ei ole. */
+export function undoLast() {
+  const last = undoStack.pop();
+  if (!last) return null;
+  const { plantId, prev, wasSeen } = last;
+  const { vote, reasons } = state.votes[plantId];
+  if (vote === 'like') state.totals.likes -= 1;
+  else state.totals.dislikes -= 1;
+  for (const r of reasons) {
+    state.totals.reasons[r] -= 1;
+    if (!state.totals.reasons[r]) delete state.totals.reasons[r];
+  }
+  if (prev) state.votes[plantId] = prev;
+  else delete state.votes[plantId];
+  if (!wasSeen) state.seen = state.seen.filter((id) => id !== plantId);
+  save();
+  return plantId;
+}
+
+export function canUndo() {
+  return undoStack.length > 0;
+}
+
+/** Kasvijoukko vaihtuu (uusi kierros, vyöhyke), joten vanhoja ääniä ei enää kumota. */
+export function clearUndo() {
+  undoStack.length = 0;
 }
 
 export function getProfile() {
@@ -66,11 +96,13 @@ export function getStats() {
 }
 
 export function newRound() {
+  clearUndo();
   state.seen = [];
   save();
 }
 
 export function reset() {
+  clearUndo();
   state = empty();
   state.sessions = 1;
   save();
