@@ -148,7 +148,7 @@ Sovellus kysyy alussa käyttäjän kasvuvyöhykkeen ja **piilottaa kasvit**, joi
 
 **Työnkulku**
 1. Katso kuntien nimet kirjoitusasuineen tiedostosta `data/municipalities.json` (kenttä `fi`).
-2. Lisää tai korjaa vyöhykkeitä tiedostoon `data/municipality-zones.json`. Taulukossa on valmiina 15 esimerkkikuntaa, joiden arvot on tarkistettava samalla tavalla kuin uudet.
+2. Lisää tai korjaa vyöhykkeitä tiedostoon `data/municipality-zones.json`. Taulukossa on kaikki kunnat Ilmatieteen laitoksen kuntaluettelon (Kunnat ja kasvuvyöhykkeet) mukaan; luettelon 1A ja 1B on tallennettu arvoksi 1 ja kaksoisvyöhykkeistä (esim. 5/6) lauhkeampi.
 3. Aja `node tools/fetch-municipalities.mjs`. Skripti hakee kunnat Wikidatasta, ilmoittaa tuntemattomat kuntien nimet ja virheelliset arvot ja kertoo, monelta kunnalta vyöhyke vielä puuttuu.
 
 **Arvon valinta**
