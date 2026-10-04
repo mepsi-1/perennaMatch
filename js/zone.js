@@ -89,7 +89,6 @@ export async function initZoneView(onDone) {
     if (m) useMunicipality(m, 'kunta');
   });
   $('#zone-ok').addEventListener('click', () => onDone(choice));
-  $('#zone-skip').addEventListener('click', () => onDone({ zone: null, municipality: null, method: 'ohitus' }));
 
   await loadMunicipalities();
   $('#towns').replaceChildren(...municipalities.flatMap((m) =>
