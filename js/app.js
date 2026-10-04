@@ -88,11 +88,9 @@ function undo() {
 }
 
 function restart() {
-  if (!confirm('Aloitetaanko alusta? Kaikki kasvit näytetään uudelleen, suosikkisi säilyvät.')) return;
-  stats.newRound();
-  buildQueue();
-  showNext();
-  showView('swipe');
+  if (!confirm('Aloitetaanko alusta? Kaikki tiedot poistetaan: suosikit, valinnat, kasvuvyöhyke ja puutarhatyypit. Tätä ei voi perua.')) return;
+  stats.reset();
+  showView('zone');
 }
 
 // ---------- Hylkäyssyyt ----------

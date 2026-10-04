@@ -101,3 +101,10 @@ export function newRound() {
   save();
 }
 
+export function reset() {
+  clearUndo();
+  state = empty();
+  state.sessions = 1;
+  save();
+}
+
