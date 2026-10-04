@@ -1,6 +1,6 @@
 import { renderCard, attribution, el } from './card.js';
 import { attachSwipe } from './swipe.js';
-import { reasonsFor } from './reasons.js';
+import { reasonsFor, penalty } from './reasons.js';
 import * as stats from './stats.js';
 import { initZoneView, resetZoneView, zoneLabel } from './zone.js';
 import { initGardenView, resetGardenView, gardenLabel, gardensOf, hasGardenAnswer, fitsProfile } from './garden.js';
@@ -26,8 +26,20 @@ function buildQueue() {
   pool = plants.filter((p) => fitsProfile(p, profile?.zone, gardensOf(profile)));
   const seen = new Set(stats.getStats().seen);
   queue = shuffle(pool.filter((p) => !seen.has(p.id)));
+  rank();
   stats.clearUndo();
   $('#zone-badge').textContent = [zoneLabel(profile), gardenLabel(gardensOf(profile))].filter(Boolean).join(' · ');
+}
+
+// Hylkäyssyyt järjestävät jonon: kasvit, joihin aiemmin valitut syyt pätevät,
+// siirtyvät loppuun. Mitään ei piiloteta, ja tasapisteissä sekoitus säilyy.
+function rank() {
+  const counts = {};
+  for (const { vote, reasons } of Object.values(stats.getStats().votes)) {
+    if (vote === 'dislike') for (const r of reasons) counts[r] = (counts[r] ?? 0) + 1;
+  }
+  const score = new Map(queue.map((p) => [p, penalty(p, counts)]));
+  queue.sort((a, b) => score.get(a) - score.get(b));
 }
 
 // ---------- Pyyhkäisynäkymä ----------
@@ -81,6 +93,7 @@ function putOnTop(plant) {
 function undo() {
   if (!$('#reasons').hidden) return;
   const id = stats.undoLast();
+  rank();
   const plant = plants.find((p) => p.id === id);
   if (plant) putOnTop(plant);
 }
@@ -112,6 +125,7 @@ function closeReasons(save) {
     ? [...sheet.querySelectorAll('.chip[aria-pressed="true"]')].map((c) => c.dataset.id)
     : [];
   stats.recordVote(sheet.dataset.plant, 'dislike', chosen);
+  if (chosen.length) rank();
   sheet.classList.remove('open');
   sheet.hidden = true;
   showNext();

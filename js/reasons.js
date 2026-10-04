@@ -46,6 +46,17 @@ export function reasonsFor(plant) {
   return list.filter((r) => !seen.has(r.id) && seen.add(r.id));
 }
 
+/**
+ * Kuinka monta kertaa käyttäjä on hylännyt kasveja syillä, jotka pätevät myös
+ * tähän kasviin. Yleiset syyt (ulkonäkö, väri, kukinta-aika) pätevät kaikkiin,
+ * joten ne eivät kerro mitään eivätkä vaikuta.
+ */
+export function penalty(plant, counts) {
+  let sum = 0;
+  for (const { id } of reasonsFor(plant)) if (!GENERIC.includes(id)) sum += counts[id] ?? 0;
+  return sum;
+}
+
 /** Syy-id:n näyttöteksti tilastoissa, myös kasvikohtaisille syille. */
 export function reasonLabel(id, plants) {
   if (REASONS[id]) return REASONS[id];
