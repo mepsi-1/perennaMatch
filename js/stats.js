@@ -16,7 +16,7 @@ function empty() {
     userId: uuid(),
     firstSeen: new Date().toISOString(),
     sessions: 0,
-    profile: null,  // { zone: 1–8 | null, municipality, method: 'gps'|'kunta'|'valinta'|'ohitus' }
+    profile: null,  // { zone: 1–8 | null, municipality, method: 'gps'|'kunta'|'valinta'|'oletus'|'ohitus' }
     votes: {},   // viimeisin ääni per kasvi
     seen: [],    // tällä kierroksella nähdyt kasvit
     totals: { likes: 0, dislikes: 0, reasons: {} },  // kumulatiiviset, eivät nollaudu uudella kierroksella

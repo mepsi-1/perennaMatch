@@ -81,7 +81,9 @@ export async function initZoneView(onDone) {
 
   $('#zone-pick').addEventListener('click', (e) => {
     const b = e.target.closest('button');
-    if (b) selectZone(Number(b.dataset.zone));
+    if (!b) return;
+    if (choice?.method === 'oletus') choice.method = 'valinta';
+    selectZone(Number(b.dataset.zone));
   });
   $('#zone-locate').addEventListener('click', locate);
   $('#zone-town').addEventListener('input', (e) => {
@@ -97,10 +99,11 @@ export async function initZoneView(onDone) {
 
 /** Valmistelee näkymän avattavaksi aiemman valinnan pohjalta. */
 export function resetZoneView(profile) {
-  choice = profile?.zone ? { ...profile } : null;
+  // Oletuksena vyöhyke I: siellä asuu eniten ihmisiä ja se näyttää lähes kaikki kasvit
+  choice = profile?.zone ? { ...profile } : { zone: 1, municipality: null, method: 'oletus' };
   $('#zone-town').value = profile?.municipality ?? '';
   status('');
-  selectZone(profile?.zone ?? null);
+  selectZone(choice.zone);
 }
 
 export function zoneLabel(profile) {
