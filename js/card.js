@@ -59,19 +59,20 @@ export function renderCard(plant) {
     ? el('img', { src: plant.image.url, alt: `${plant.fi} (${plant.sci})`, draggable: 'false' })
     : el('div', { class: 'no-image' }, 'Ei kuvaa');
 
+  // Herbaarioarkki: teipattu kuva ja kirjoituskoneella täytetty keruulappu
   return el('article', { class: 'card', 'aria-label': plant.fi },
-    el('div', { class: 'photo' },
-      img,
-      el('span', { class: 'stamp like' }, 'Tykkään'),
-      el('span', { class: 'stamp nope' }, 'Ei kiitos'),
-      plant.image && el('p', { class: 'credit' }, attribution(plant.image)),
-    ),
-    el('div', { class: 'info' },
-      el('p', { class: 'kind' }, [TYPE[plant.type ?? 'perenna'], ...(plant.tags ?? []).map((t) => TAGS[t])].join(' · ')),
-      el('h2', {}, plant.fi, ' ', el('i', {}, plant.sci)),
-      el('p', { class: 'desc' }, plant.desc),
+    el('div', { class: 'mount' }, img),
+    plant.image && el('p', { class: 'credit' }, attribution(plant.image)),
+    el('div', { class: 'label' },
+      el('p', { class: 'label-head' },
+        el('span', {}, 'Herb. PerennaMatch'),
+        el('span', {}, [TYPE[plant.type ?? 'perenna'], ...(plant.tags ?? []).map((t) => TAGS[t])].join(' · '))),
+      el('h2', { class: 'taxon' }, el('i', {}, plant.sci), el('span', { class: 'vern' }, plant.fi)),
       el('dl', { class: 'facts' },
         facts.map(([k, v]) => el('div', {}, el('dt', {}, k), el('dd', {}, v)))),
+      el('p', { class: 'desc' }, plant.desc),
     ),
+    el('span', { class: 'stamp like' }, 'Tykkään'),
+    el('span', { class: 'stamp nope' }, 'Ei kiitos'),
   );
 }
