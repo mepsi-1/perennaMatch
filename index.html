@@ -20,7 +20,6 @@
     <nav>
       <button type="button" data-view="swipe" aria-current="page">Kasvit</button>
       <button type="button" data-view="stats">Tilastot</button>
-      <button type="button" data-view="credits">Kuvat</button>
     </nav>
   </header>
 
@@ -71,7 +70,6 @@
       <p class="muted">Valintasi tallentuvat vain tähän selaimeen.</p>
       <div id="stats-body"></div>
       <div class="row">
-        <button type="button" id="export" class="btn">Vie JSON</button>
         <button type="button" id="reset" class="btn danger">Nollaa</button>
       </div>
     </section>
@@ -82,6 +80,10 @@
       <div id="credits-body"></div>
     </section>
   </main>
+
+  <footer class="foot">
+    <button type="button" class="link" data-view="credits">Kuvien tekijät ja lisenssit</button>
+  </footer>
 
   <div id="reasons" class="sheet" role="dialog" aria-modal="true" aria-labelledby="reason-title" hidden>
     <div class="sheet-panel">

@@ -19,7 +19,7 @@ function empty() {
     profile: null,  // { zone: 1–8 | null, municipality, method: 'gps'|'kunta'|'valinta'|'oletus'|'ohitus' }
     votes: {},   // viimeisin ääni per kasvi
     seen: [],    // tällä kierroksella nähdyt kasvit
-    totals: { likes: 0, dislikes: 0, reasons: {} },  // kumulatiiviset, eivät nollaudu uudella kierroksella
+    totals: { likes: 0, dislikes: 0, reasons: {} },  // kumulatiiviset etäkeruuta varten; näkymä laskee luvut votes-kentästä
   };
 }
 
@@ -74,13 +74,4 @@ export function reset() {
   state = empty();
   state.sessions = 1;
   save();
-}
-
-export function exportJson() {
-  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `perennatilastot-${new Date().toISOString().slice(0, 10)}.json`;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }

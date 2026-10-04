@@ -29,7 +29,7 @@ There is no test suite, linter or bundler.
 - Automatic image picks can be the wrong species: Wikidata's image for *Hosta sieboldiana* was a *Hosta fortunei* file. Always check new images visually.
 
 **Runtime modules (`js/`)**
-- `app.js` loads `plants.json`, builds a shuffled queue of unseen plants and swaps views (`swipe`/`stats`/`credits`, toggled with the `hidden` attribute). It also drives the rejection-reason bottom sheet.
+- `app.js` loads `plants.json`, builds a shuffled queue of unseen plants and swaps views (`swipe`/`stats`/`credits`, toggled with the `hidden` attribute; `credits` is opened from the footer link, not the nav). It also drives the rejection-reason bottom sheet.
 - `swipe.js` `attachSwipe(card, onSwipe)` handles pointer-event dragging and returns a `fling(dir)` function. Buttons and arrow keys call the same function.
 - `reasons.js` builds each plant's rejection reasons:
   - Rules are applied to `height`/`light`/`moisture`/`zoneMax`/`care`/`spreads`, then the generic reasons are appended.
@@ -37,7 +37,7 @@ There is no test suite, linter or bundler.
   - Use the same custom ids across plants so the statistics aggregate.
 - `zone.js` drives the onboarding view, which sets the user's growing zone in one of three ways: geolocation picks the nearest municipality centroid locally (coordinates are never stored or sent), the user searches for a municipality by Finnish or Swedish name, or the user picks I–VIII directly. The municipality's zone (`data/municipalities.json`, generated from the hand-edited `data/municipality-zones.json`) is only a suggestion the user can change. `app.js` **hides** plants whose `zoneMax` is below the chosen zone. A `null` zone (only in old profiles that used the removed skip button) shows all plants.
 - `garden.js` is the second onboarding step: the user picks one or more garden types (parveke/pieni/iso/mokki), and a plant is shown if it fits at least one of them (`fitsProfile()`). When `minGarden` is missing it is derived: perennials default to `pieni` (so they are hidden on a balcony), trees with `height[0] >= 1000` default to `iso`, and shrubs/climbers (`pensas`/`koynnos`) with `height[1] > 500` default to `iso`. The profile is `{ zone, municipality, method, suggestedZone, gardens: [] }`. An empty array means the user skipped the step. Old profiles store a single `garden` string, and `gardensOf()` normalizes them. A profile with neither key sends the user to that step on load. The zone is asked only once. For the balcony option the zone filter is one zone stricter, capped at VIII (`effectiveZone()`), because plants in pots overwinter worse.
-- `stats.js` is the **only** module that touches storage (localStorage key `perenna.v1`). `totals` are cumulative and survive "new round" (`newRound()` clears only `seen`). A future remote collector (e.g. Supabase) should plug into `recordVote()` without changes elsewhere.
+- `stats.js` is the **only** module that touches storage (localStorage key `perenna.v1`). `totals` are cumulative and survive "new round" (`newRound()` clears only `seen`); they are kept for a future collector, while the stats view counts everything from `votes` (latest vote per plant) so rounds don't double-count. A future remote collector (e.g. Supabase) should plug into `recordVote()` without changes elsewhere.
 - `card.js` renders the card DOM through the `el()` helper and handles image attribution. Every image must show artist and license.
 
 **Plant schema rules** (full spec and data-collection workflow: `docs/TIEDONKERUU.md`)

@@ -98,22 +98,22 @@ function closeReasons(save) {
 
 function renderStats() {
   const s = stats.getStats();
-  const { likes, dislikes } = s.totals;
-  const total = likes + dislikes;
   const byId = new Map(plants.map((p) => [p.id, p]));
+  // Kaikki luvut viimeisimmästä äänestä per kasvi, jotta uudet kierrokset eivät tuplaa niitä
+  const votes = Object.entries(s.votes).filter(([id]) => byId.has(id));
+  const favs = votes.filter(([, v]) => v.vote === 'like').map(([id]) => byId.get(id));
+  const total = votes.length;
+  const likes = favs.length;
 
-  const favs = Object.entries(s.votes)
-    .filter(([id, v]) => v.vote === 'like' && byId.has(id))
-    .map(([id]) => byId.get(id));
-
-  const reasons = Object.entries(s.totals.reasons).sort((a, b) => b[1] - a[1]);
+  const counts = {};
+  for (const [, v] of votes) for (const r of v.reasons ?? []) counts[r] = (counts[r] ?? 0) + 1;
+  const reasons = Object.entries(counts).sort((a, b) => b[1] - a[1]);
   const max = reasons[0]?.[1] || 1;
 
   // Tykkäysosuus teemoittain ja kasvityypeittäin, jotta näkee mistä pitää
   const groups = new Map();
-  for (const [id, v] of Object.entries(s.votes)) {
+  for (const [id, v] of votes) {
     const p = byId.get(id);
-    if (!p) continue;
     for (const label of [TYPE[p.type ?? 'perenna'], ...(p.tags ?? []).map((t) => TAGS[t])]) {
       const g = groups.get(label) ?? { likes: 0, n: 0 };
       g.n += 1;
@@ -126,8 +126,7 @@ function renderStats() {
   $('#stats-body').replaceChildren(
     el('div', { class: 'tiles' },
       el('div', { class: 'tile' }, el('strong', {}, String(total)), el('span', {}, 'arviota')),
-      el('div', { class: 'tile' }, el('strong', {}, total ? `${Math.round((likes / total) * 100)} %` : '–'), el('span', {}, 'tykkäyksiä')),
-      el('div', { class: 'tile' }, el('strong', {}, String(s.sessions)), el('span', {}, 'käyntikertaa'))),
+      el('div', { class: 'tile' }, el('strong', {}, total ? `${Math.round((likes / total) * 100)} %` : '–'), el('span', {}, 'tykkäyksiä'))),
     el('h3', {}, 'Suosikkisi'),
     favs.length
       ? el('ul', { class: 'favs' }, favs.map((p) => el('li', {},
@@ -205,7 +204,6 @@ async function init() {
   $('#btn-nope').addEventListener('click', () => current?.fling('dislike'));
   $('#reason-done').addEventListener('click', () => closeReasons(true));
   $('#reason-skip').addEventListener('click', () => closeReasons(false));
-  $('#export').addEventListener('click', stats.exportJson);
   $('#reset').addEventListener('click', () => {
     if (!confirm('Poistetaanko kaikki tallennetut valinnat?')) return;
     stats.reset();
