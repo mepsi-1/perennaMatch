@@ -23,7 +23,7 @@ Pyyhkäisyn lisäksi voit käyttää ✕- ja ♥-nappeja tai nuolinäppäimiä �
 | `js/card.js` | Kortin ja kuvan tekijätietojen renderöinti |
 | `js/swipe.js` | Raahaus ja kortin lennätys |
 | `js/reasons.js` | Hylkäyssyyt ja niiden valintasäännöt |
-| `js/stats.js` | Tilastot (localStorage-avain `perenna.v1`) |
+| `js/stats.js` | Äänet, profiili ja kumoaminen (localStorage-avain `perenna.v1`) |
 | `data/plants-source.json` | Käsin ylläpidetty kasvilista |
 | `data/plants.json` | Generoitu: kasvilista sekä kuvat ja lisenssitiedot |
 | `tools/fetch-images.mjs` | Kuvien haku Wikimedia Commonsista ja iNaturalistista |
@@ -43,7 +43,7 @@ node tools/fetch-images.mjs
 
 ## Tilastot
 
-Tällä hetkellä kaikki tallennetaan vain käyttäjän omaan selaimeen. Tilastot-näkymästä ne voi viedä JSON-tiedostona. Keskitetty keruu (esim. Supabase) lisätään `js/stats.js`:n `recordVote()`-funktioon, eikä muuta koodia tarvitse muuttaa.
+Tällä hetkellä kaikki tallennetaan vain käyttäjän omaan selaimeen. Keskitetty keruu (esim. Supabase) lisätään `js/stats.js`:n `recordVote()`-funktioon, eikä muuta koodia tarvitse muuttaa.
 
 ## Julkaisu GitHub Pagesiin
 
